@@ -1,0 +1,49 @@
+name: "Static Analysis"
+
+env:
+  WORKING_DIR_API: "./platform/"
+
+on: [ push, pull_request ]
+
+jobs:
+  analyse_platform:
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [ "20.3" ]
+        next: [ "^14.2.3"]
+
+    name: "P${{ matrix.node }} - L${{ matrix.next }}"
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: "actions/checkout@v4"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.3'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: platform/node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        run: |
+          cd platform
+          yarn install --cache-folder .yarn
+
+      - name: Lint code
+        run: |
+          cd platform
+          yarn lint
+
+      - name: TypeScript compilation
+        run: |
+          cd platform
+          yarn tsc

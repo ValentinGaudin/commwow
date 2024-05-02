@@ -1,0 +1,56 @@
+name: "Build staging"
+
+on:
+  push:
+    branches:
+      - 'staging'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: --debug
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Checkout Repository
+        uses: actions/checkout@v2
+      -
+        name: Check Directory
+        run: ls
+      -
+        name: Build platform and push
+        run: |
+          cd platform
+          docker build \
+            --file=Dockerfile \
+            --build-arg=DOCKER_UID=${{ secrets.DOCKER_UID }} \
+            --build-arg=DOCKER_GID=${{ secrets.DOCKER_GID }} \
+            --target=platform-production \
+            --tag=the_lab/platform-production:${{ github.sha }} .
+          
+          docker push the_lab/platform-production:${{ github.sha }}
+      -
+        name: Build webserver and push
+        run: |
+          cd platform
+          docker build \
+            --file=Dockerfile \
+            --build-arg=DOCKER_UID=$DOCKER_UID \
+            --build-arg=DOCKER_GID=$DOCKER_GID \
+            --target=webserver-production \
+            --tag=the_lab/webserver-production:${{ github.sha }} .
+
+          docker push the_lab/webserver-production:${{ github.sha }}

@@ -1,0 +1,9 @@
+services:
+  orchestrator:
+    ports:
+      - 80:80
+      - 8081:80
+    command:
+      - --providers.docker
+      - --providers.docker.exposedbydefault=false
+      - --api.insecure=true
