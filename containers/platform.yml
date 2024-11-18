@@ -1,7 +1,0 @@
-services:
-  platform:
-    environment:
-      ENV: ${ENV}
-      HTTP_PROTOCOL: ${HTTP_PROTOCOL}
-      DOMAIN: ${DOMAIN}
-      APP_NAME: ${APP_NAME}

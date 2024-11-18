@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es6": true,
@@ -40,7 +41,10 @@
       "node": {
         "extensions": [".ts", ".tsx"]
       },
-      "typescript": {}
+      "typescript": true
+    },
+    "next" : {
+      "version": "14.x"
     },
     "react": {
       "version": "18.x"
