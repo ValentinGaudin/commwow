@@ -1,2 +1,15 @@
 export { default as ApplicationLogo } from './ApplicationLogo';
 export { default as Loader } from './Loader';
+export { default as Section } from './Section';
+// export { default as SectionTitle } from './SectionTitle';
+// export { default as SectionSubtitle } from './SectionSubtitle';
+// export { default as SectionDescription } from './SectionDescription';
+// export { default as SectionExtraText } from './SectionExtraText';
+// export { default as SectionImage } from './SectionImage';
+// export { default as SectionButton } from './SectionButton';
+// export { default as SectionLink } from './SectionLink';
+// export { default as SectionInput } from './SectionInput';
+// export { default as SectionSelect } from './SectionSelect';
+// export { default as SectionTextArea } from './SectionTextArea';
+export { default as FirstSection } from './FirstSection';
+export { default as SecondSection } from './SecondSection';
