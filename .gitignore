@@ -1,5 +1,5 @@
 /.idea
 /.fleet
-.env
+platform/.env
 .DS_Store
 *.orig

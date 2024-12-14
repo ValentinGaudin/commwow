@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  @font-face {
+    font-family: 'Flode Neue';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../../public/fonts/LTFlodeNeue-Italic.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Flode Neue';
+    font-weight: 400;
+    src: url('../../public/fonts/LTFlodeNeue-Regular.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Flode Neue';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../../public/fonts/LTFlodeNeue-Bold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: Barba;
+    font-weight: 400;
+    src: url(../../public/fonts/barbra-font/Barbra-Regular.otf) format('opentype');
+  }
+  @font-face {
+      font-family: Barba;
+  }
+  /*@font-face {*/
+  /*  font-family: 'Orbitron';*/
+  /*  font-style: normal;*/
+  /*  font-weight: 900;*/
+  /*  src: url('../assets/fonts/Orbitron-Black.ttf') format('truetype');*/
+  /*}*/
+}
+
+*, body, html {
+  @apply m-0 p-0 border-0 box-border;
+}
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-1 h-1;
+}
+
+/* Track */
+/*::-webkit-scrollbar-track {*/
+/*  @apply dark:bg-dark;*/
+/*}*/
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-white;
+}
+
+@layer base {
+  *, body, html {
+    font-family: 'Chakra Petch', monospace;
+    font-weight: 700;
+  }
+}
