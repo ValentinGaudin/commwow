@@ -8,7 +8,6 @@ export const ContactSchema = z.object({
 	}),
 	phone: z.string().optional(),
 	subject: z.string().min(5, 'Sujet trop court'),
-	recaptcha: z.string().min(1, 'Veuillez valider le captcha'),
 });
 
 export type Contact = z.infer<typeof ContactSchema>;

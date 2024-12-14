@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Contact, ContactSchema } from '@/types/contact';
 import { Send } from 'lucide-react';
 
-type RequestTypeKey = 'information' | 'quote';
-
 const ContactForm = () => {
+	const recaptchaRef = useRef<ReCAPTCHA>(null);
+	const [isVerified, setIsVerified] = useState(false);
+
 	const initialValues: Contact = {
 		fullname: '',
 		email: '',
 		requestType: 'information',
 		phone: '',
 		subject: '',
-		recaptcha: '',
 	};
 
 	const onSubmit = async (
-		payload: ContactFormValues,
+		payload: Contact,
 		{ resetForm }: { resetForm: () => void }
 	) => {
 		await fetch('api/contact', {
@@ -30,6 +30,33 @@ const ContactForm = () => {
 		});
 
 		resetForm();
+		recaptchaRef.current?.reset();
+	};
+
+	async function handleCaptchaSubmission(token: string | null) {
+		try {
+			if (token) {
+				await fetch('/api/recaptcha', {
+					method: 'POST',
+					headers: {
+						Accept: 'application/json',
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ token }),
+				});
+				setIsVerified(true);
+			}
+		} catch (e) {
+			setIsVerified(false);
+		}
+	}
+
+	const handleChange = async (token: string | null) => {
+		await handleCaptchaSubmission(token);
+	};
+
+	const handleExpired = () => {
+		setIsVerified(false);
 	};
 
 	return (
@@ -38,7 +65,7 @@ const ContactForm = () => {
 			validationSchema={toFormikValidationSchema(ContactSchema)}
 			onSubmit={onSubmit}
 		>
-			{({ setFieldValue, isSubmitting }) => (
+			{({ isSubmitting }) => (
 				<Form className="space-y-6 max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
 					{/* Nom complet */}
 					<div>
@@ -116,7 +143,9 @@ const ContactForm = () => {
 					<div className="flex flex-col items-center gap-4">
 						<ReCAPTCHA
 							sitekey={process.env.NEXT_PUBLIC_APP_RECAPTCHA_SITE_KEY!}
-							onChange={(token) => setFieldValue('recaptcha', token)}
+							ref={recaptchaRef}
+							onChange={() => handleChange}
+							onExpired={handleExpired}
 						/>
 						<ErrorMessage
 							name="recaptcha"
@@ -129,8 +158,8 @@ const ContactForm = () => {
 					<div className="flex justify-center">
 						<button
 							type="submit"
-							disabled={isSubmitting}
-							className="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
+							disabled={isSubmitting || !isVerified}
+							className="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-orange-500"
 						>
 							<Send className="w-5 h-5" />
 							<span>Envoyer</span>

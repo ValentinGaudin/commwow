@@ -33,7 +33,7 @@ const Loader = () => {
 		>
 			<div className="flex items-center gap-1 mt-6">
 				<div ref={textRef} className="text-2xl font-bold text-orange-600">
-					Comm'Wow
+					Comm&apos;Wow
 				</div>
 				<div ref={dotsRef} className="flex gap-1 ml-1">
 					<div className="dot w-2 h-2 bg-orange-600 rounded-full"></div>
