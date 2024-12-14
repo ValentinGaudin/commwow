@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 const AnimatedArrow = () => {
 	const arrowRef = useRef<HTMLDivElement | null>(null);
 	const [isScrolling, setIsScrolling] = useState(false);
+	const [isAtBottom, setIsAtBottom] = useState(false);
 
 	useEffect(() => {
 		let scrollTimeout: NodeJS.Timeout;
@@ -11,6 +12,16 @@ const AnimatedArrow = () => {
 		const handleScroll = () => {
 			setIsScrolling(true);
 			clearTimeout(scrollTimeout);
+
+			const scrollTop = window.scrollY; // Position actuelle du scroll
+			const windowHeight = window.innerHeight; // Hauteur de la fenêtre visible
+			const documentHeight = document.documentElement.scrollHeight; // Hauteur totale du document
+
+			if (scrollTop + windowHeight >= documentHeight - 10) {
+				setIsAtBottom(true);
+			} else {
+				setIsAtBottom(false);
+			}
 
 			scrollTimeout = setTimeout(() => {
 				setIsScrolling(false);
@@ -26,7 +37,7 @@ const AnimatedArrow = () => {
 	}, []);
 
 	useEffect(() => {
-		if (isScrolling) {
+		if (isScrolling || isAtBottom) {
 			gsap.to(arrowRef.current, { opacity: 0, duration: 0.3 });
 		} else {
 			gsap.to(arrowRef.current, { opacity: 1, duration: 0.5 });
@@ -37,12 +48,23 @@ const AnimatedArrow = () => {
 				yoyo: true,
 			});
 		}
-	}, [isScrolling]);
+	}, [isScrolling, isAtBottom]);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			gsap.to(arrowRef.current, { opacity: 0, duration: 0.3 }); // Cacher la flèche au scroll
+		};
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
 
 	return (
 		<div
 			ref={arrowRef}
-			// className="hidden md:block"
 			style={{
 				position: 'fixed',
 				bottom: '20px',
