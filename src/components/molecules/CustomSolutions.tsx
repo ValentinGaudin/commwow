@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Facebook, Mail } from 'lucide-react';
 import { NewsLetterForm, ContactForm, Modal } from '@/components/atoms';
+import OpenModalButton from '@/components/atoms/OpenModalButton';
 
 const CustomSolutions = () => {
 	const [showContactForm, setShowContactForm] = useState(false);
@@ -137,13 +138,7 @@ const CustomSolutions = () => {
 							</p>
 
 							<div className="flex flex-col sm:flex-row items-center gap-6 mt-8">
-								<button
-									ref={buttonContactRef}
-									onClick={() => setShowContactForm(true)}
-									className="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors w-full sm:w-auto"
-								>
-									Contactez-moi
-								</button>
+								<OpenModalButton ref={buttonContactRef} />
 
 								<div ref={socialMediaRef} className="flex items-center gap-6">
 									<a
@@ -199,18 +194,6 @@ const CustomSolutions = () => {
 						<NewsLetterForm />
 					</div>
 				</div>
-
-				<Modal
-					isOpen={showContactForm}
-					onClose={() => setShowContactForm(false)}
-				>
-					<div className="p-8">
-						<h2 className="text-3xl font-bold text-orange-600 mb-8 text-center">
-							Contactez-moi
-						</h2>
-						<ContactForm />
-					</div>
-				</Modal>
 			</div>
 		</section>
 	);
