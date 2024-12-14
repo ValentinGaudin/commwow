@@ -9,6 +9,9 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			backgroundImage: {
+				'hero-pattern': "url('/images/hero-pattern.svg')",
+			},
 			fontFamily: {
 				sans: ['Flode Neue', 'monospace'],
 				barba: ['Barba', 'sans-serif'],
@@ -23,6 +26,9 @@ const config: Config = {
 				},
 				ternary: {
 					DEFAULT: '#F5A02E',
+				},
+				quaternary: {
+					DEFAULT: '#B59078',
 				},
 			},
 		},

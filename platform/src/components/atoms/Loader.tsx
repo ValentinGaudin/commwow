@@ -1,42 +1,44 @@
-'use client';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
-import React, { useEffect, useState } from 'react';
-
-type Props = {
-	loading: boolean;
-};
-
-const Loader = ({ loading }: Props) => {
-	const [progress, setProgress] = useState(0);
+const Loader = () => {
+	const loaderRef = useRef<HTMLDivElement>(null);
+	const textRef = useRef<HTMLDivElement>(null);
+	const dotsRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		if (loading) {
-			const interval = setInterval(() => {
-				setProgress((prev) => {
-					if (prev < 100) {
-						return prev + 1;
-					} else {
-						clearInterval(interval);
-						return prev;
-					}
-				});
-			}, 50); // Augmente de 1 toutes les 50 ms
+		const tl = gsap.timeline({ repeat: -1 });
 
-			return () => clearInterval(interval);
-		} else {
-			setProgress(100); // Assurez-vous que le progress soit à 100 si le chargement est terminé
-		}
-	}, [loading]);
+		// Animate the dots
+		gsap.to('.dot', {
+			y: -10,
+			duration: 0.5,
+			ease: 'power2.inOut',
+			stagger: {
+				each: 0.2,
+				repeat: -1,
+				yoyo: true,
+			},
+		});
+
+		return () => {
+			tl.kill();
+		};
+	}, []);
 
 	return (
-		<div className="fixed inset-0 flex items-center justify-center bg-gray-100 z-50">
-			<div className="text-center">
-				<div className="text-2xl mb-4">{progress}%</div>
-				<div className="w-full max-w-xs h-3 bg-gray-300 rounded-full overflow-hidden">
-					<div
-						className="h-full bg-green-500 transition-all duration-100"
-						style={{ width: `${progress}%` }}
-					></div>
+		<div
+			ref={loaderRef}
+			className="fixed inset-0 bg-orange-50 flex flex-col items-center justify-center z-50"
+		>
+			<div className="flex items-center gap-1 mt-6">
+				<div ref={textRef} className="text-2xl font-bold text-orange-600">
+					Comm'Wow
+				</div>
+				<div ref={dotsRef} className="flex gap-1 ml-1">
+					<div className="dot w-2 h-2 bg-orange-600 rounded-full"></div>
+					<div className="dot w-2 h-2 bg-orange-600 rounded-full"></div>
+					<div className="dot w-2 h-2 bg-orange-600 rounded-full"></div>
 				</div>
 			</div>
 		</div>

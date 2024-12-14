@@ -26,6 +26,9 @@
     font-weight: 400;
     src: url(../../public/fonts/barbra-font/Barbra-Regular.otf) format('opentype');
   }
+  @font-face {
+      font-family: Barba;
+  }
   /*@font-face {*/
   /*  font-family: 'Orbitron';*/
   /*  font-style: normal;*/
