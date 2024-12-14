@@ -123,19 +123,8 @@ const Hero = () => {
 						</div>
 					</div>
 				</div>
-
-				<Modal
-					isOpen={showContactForm}
-					onClose={() => setShowContactForm(false)}
-				>
-					<div className="p-8">
-						<h2 className="text-3xl font-bold text-orange-600 mb-8 text-center">
-							Contactez-moi
-						</h2>
-						<ContactForm />
-					</div>
-				</Modal>
 			</div>
+
 			<OpenModalButton ref={buttonContactRef} />
 		</section>
 	);

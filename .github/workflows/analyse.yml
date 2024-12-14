@@ -1,8 +1,5 @@
 name: "Static Analysis"
 
-env:
-  WORKING_DIR_API: "./platform/"
-
 on: [ push, pull_request ]
 
 jobs:
@@ -30,20 +27,17 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: platform/node_modules
+          path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install dependencies
         run: |
-          cd platform
           yarn install --cache-folder .yarn
 
       - name: Lint code
         run: |
-          cd platform
           yarn lint
 
       - name: TypeScript compilation
         run: |
-          cd platform
           yarn tsc
