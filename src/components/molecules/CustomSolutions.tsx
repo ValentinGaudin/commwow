@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Facebook, Mail } from 'lucide-react';
-import { NewsLetterForm, ContactForm, Modal } from '@/components/atoms';
+import { NewsLetterForm } from '@/components/atoms';
 import OpenModalButton from '@/components/atoms/OpenModalButton';
 
 const CustomSolutions = () => {
-	const [showContactForm, setShowContactForm] = useState(false);
 	const sectionRef = useRef<HTMLDivElement>(null);
 	const newsLetterTitleFormRef = useRef<HTMLDivElement>(null);
 	const newsLetterBoxFormRef = useRef<HTMLDivElement>(null);

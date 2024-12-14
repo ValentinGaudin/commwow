@@ -51,8 +51,8 @@ const ContactForm = () => {
 		}
 	}
 
-	const handleChange = (token: string | null) => {
-		handleCaptchaSubmission(token);
+	const handleChange = async (token: string | null) => {
+		await handleCaptchaSubmission(token);
 	};
 
 	const handleExpired = () => {
@@ -144,7 +144,7 @@ const ContactForm = () => {
 						<ReCAPTCHA
 							sitekey={process.env.NEXT_PUBLIC_APP_RECAPTCHA_SITE_KEY!}
 							ref={recaptchaRef}
-							onChange={handleChange}
+							onChange={() => handleChange}
 							onExpired={handleExpired}
 						/>
 						<ErrorMessage

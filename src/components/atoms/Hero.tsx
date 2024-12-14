@@ -1,17 +1,14 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
-import { ContactForm, Modal } from '@/components/atoms/index';
 import OpenModalButton from '@/components/atoms/OpenModalButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-	const [showContactForm, setShowContactForm] = useState(false);
-
 	const heroRef = useRef<HTMLDivElement>(null);
 	const imageContainerRef = useRef<HTMLDivElement>(null);
 	const textContentRef = useRef<HTMLDivElement>(null);
