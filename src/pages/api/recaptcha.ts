@@ -11,10 +11,13 @@ export default async function handler(
 
 	const data = (await request.body) as { token: string };
 	const { token } = data;
-	const secretKey: string | undefined = process.env.RECAPTCHA_SECRET_KEY;
+	const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
-	if (!token) {
+	if (!token ) {
 		return response.status(400).json({ message: 'Token is required' });
+	}
+	if (!secretKey) {
+		return response.status(400).json({ message: 'Secret key is required' });
 	}
 
 	try {
@@ -26,7 +29,7 @@ export default async function handler(
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				body: new URLSearchParams({
-					secret: secretKey || '',
+					secret: secretKey,
 					response: token,
 				}).toString(),
 			}
@@ -35,7 +38,7 @@ export default async function handler(
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		const result = await recaptchaResponse.json();
 
-		if (result.success) {
+		if (result) {
 			return response.status(200).json({ message: 'Successfully verified' });
 		} else {
 			return response.status(400).json({ message: 'Failed to verify' });
