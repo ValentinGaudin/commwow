@@ -11,7 +11,7 @@ export default async function handler(
 
 	const data = (await request.body) as { token: string };
 	const { token } = data;
-	const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+	const secretKey = process.env.APP_RECAPTCHA_SECRET_KEY;
 
 	if (!token) {
 		return response.status(400).json({ message: 'Token is required' });
@@ -19,19 +19,18 @@ export default async function handler(
 	if (!secretKey) {
 		return response.status(400).json({ message: 'Secret key is required' });
 	}
-
+	
+	console.log(token);
+	console.log(secretKey);
+	
 	try {
 		const recaptchaResponse = await fetch(
-			`https://www.google.com/recaptcha/api/siteverify`,
+			`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
 			{
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded',
 				},
-				body: new URLSearchParams({
-					secret: secretKey,
-					response: token,
-				}).toString(),
 			}
 		);
 
