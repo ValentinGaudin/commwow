@@ -50,15 +50,20 @@ const ContactForm = () => {
 	};
 
 	async function handleCaptchaSubmission(token: string | null) {
+		const captchaValue = recaptchaRef.current?.getValue();
+
+		console.log(token);
+		console.log(captchaValue);
+
 		try {
-			if (token) {
+			if (captchaValue && captchaValue.length > 0 && token) {
 				await fetch('/api/recaptcha', {
 					method: 'POST',
 					headers: {
 						Accept: 'application/json',
 						'Content-Type': 'application/json',
 					},
-					body: JSON.stringify({ token }),
+					body: JSON.stringify({ captchaValue }),
 				});
 				setIsVerified(true);
 			}
@@ -66,14 +71,6 @@ const ContactForm = () => {
 			setIsVerified(false);
 		}
 	}
-
-	const handleChange = async (token: string | null) => {
-		await handleCaptchaSubmission(token);
-	};
-
-	const handleExpired = () => {
-		setIsVerified(false);
-	};
 
 	return (
 		<Formik
@@ -160,8 +157,7 @@ const ContactForm = () => {
 						<ReCAPTCHA
 							sitekey={process.env.APP_RECAPTCHA_SITE_KEY!}
 							ref={recaptchaRef}
-							onChange={() => handleChange}
-							onExpired={handleExpired}
+							onChange={() => handleCaptchaSubmission}
 						/>
 						<ErrorMessage
 							name="recaptcha"
