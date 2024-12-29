@@ -19,10 +19,7 @@ export default async function handler(
 	if (!secretKey) {
 		return response.status(400).json({ message: 'Secret key is required' });
 	}
-	
-	console.log(token);
-	console.log(secretKey);
-	
+
 	try {
 		const recaptchaResponse = await fetch(
 			`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
