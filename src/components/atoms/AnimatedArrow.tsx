@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
@@ -68,7 +70,7 @@ const AnimatedArrow = () => {
 			style={{
 				position: 'fixed',
 				bottom: '20px',
-				left: '50%',
+				right: '5%',
 				transform: 'translateX(-50%)',
 				fontSize: '2rem',
 				cursor: 'pointer',

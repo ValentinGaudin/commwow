@@ -1,58 +1,44 @@
 export const services = [
 	{
-		title: 'Création et publication de contenu :',
+		title: 'Planification de contenu',
 		description:
-			'Création de publications attrayantes et engageantes pour votre page Facebook, incluant du texte, des images et des vidéos. Publication régulière de contenu pertinent pour votre entreprise, adapté à votre public cible.',
-		image:
-			'https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80&w=600',
+			"Un calendrier de publications hebdomadaire conçu pour maximiser l’impact de votre page Facebook, aligné sur vos objectifs et les attentes de votre audience.",
+		image: '/images/photo-05.png',
 	},
 	{
-		title: 'Planification de contenu :',
+		title: 'Création et publication de contenu',
 		description:
-			"Élaboration d'un plan hebdomadaire de publications pour votre page Facebook, en tenant compte de vos objectifs et de ce qui intéresse votre audience.",
-		image:
-			'https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80&w=600',
+			"Création et diffusion régulière de contenus engageants (textes, images, vidéos) adaptés à votre public cible pour renforcer votre présence en ligne.",
+		image: '/images/photo-06.png',
 	},
 	{
-		title: 'Gestion de la page Facebook :',
+		title: 'Gestion de la page Facebook',
 		description:
-			'Optimisation de votre page Facebook pour une présentation professionnelle et une meilleure visibilité. Réponse aux messages, commentaires et avis des clients pour maintenir un engagement actif avec votre audience.',
-		image:
-			'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=600',
+			"Optimisation de votre page pour une présentation professionnelle et réactive, incluant la gestion des messages, commentaires et avis clients.",
+		image: '/images/photo-07.png',
 	},
 	{
-		title: 'Suivi des performances :',
+		title: 'Supports visuels et publicitaires',
 		description:
-			'Surveillance des performances de votre page Facebook, y compris le nombre de likes, de partages et de commentaires, afin de vous informer sur ce qui marche le mieux pour votre entreprise.',
-		image:
-			'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600',
+			"Création de supports comme affiches, dépliants, et roll-ups pour mettre en avant vos messages lors d’événements ou campagnes.",
+		image: '/images/photo-08.png',
 	},
 	{
-		title: 'Création de Cartes de Visite Impactantes',
+		title: 'Flyers et brochures',
 		description:
-			"Conception de cartes de visite personnalisées qui capturent l'essence de votre marque et vous aident à faire une impression mémorable lors de chaque rencontre. Chaque carte est conçue pour être à la fois esthétiquement plaisante et fonctionnelle.",
-		image:
-			'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600',
+			"Des designs percutants pour promouvoir vos produits et services de manière claire, engageante et incitative.",
+		image: '/images/photo-09.png',
 	},
 	{
-		title: 'Conception de Supports Publicitaires',
+		title: 'Cartes de visite',
 		description:
-			"Créez des supports publicitaires variés (affiches, dépliants, roll-ups) pour renforcer votre visibilité et promouvoir vos messages de manière professionnelle lors d'événements et salons.",
-		image:
-			'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600',
+			"Des cartes uniques qui reflètent votre marque, conçues pour marquer les esprits et transmettre vos valeurs à chaque échange.",
+		image: '/images/photo-10.png',
 	},
 	{
-		title: 'Design de Flyers et Brochures',
+		title: 'Guide pratique pour votre communication',
 		description:
-			"Création de supports visuellement attrayants pour promouvoir produits et services de manière claire et engageante, incitant à l'action pour diverses occasions.",
-		image:
-			'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=600',
-	},
-	{
-		title: 'Guide Pratique pour Votre Communication',
-		description:
-			"Développement d'un guide pratique détaillé pour une communication visuelle cohérente à travers tous les supports, assurant une présentation professionnelle de la marque.",
-		image:
-			'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&q=80&w=600',
+			"Un document clé pour assurer la cohérence de votre communication visuelle sur tous vos supports.",
+		image: '/images/photo-11.png',
 	},
 ];

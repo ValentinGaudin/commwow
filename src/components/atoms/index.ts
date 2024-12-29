@@ -1,11 +1,16 @@
+export { default as ApplicationLogo } from './ApplicationLogo';
+export { default as Card } from './Card';
 export { default as Loader } from './Loader';
 export { default as AnimatedArrow } from './AnimatedArrow';
 export { default as ContactModal } from './ContactModal';
+export { default as PricingCard } from './PricingCard';
 export { default as Hero } from './Hero';
 export { default as Services } from './Services';
 export { default as ServiceCard } from './ServiceCard';
-export { default as ServicesGrid } from '../organisms/ServicesGrid';
+export { default as NavigationBar } from './NavigationBar';
 export { default as About } from './About';
 export { default as Modal } from './Modal';
 export { default as ContactForm } from './ContactForm';
 export { default as NewsLetterForm } from './NewsLetterForm';
+export { default as OpenModalButton } from './OpenModalButton';
+export { default as Wave } from './Wave';

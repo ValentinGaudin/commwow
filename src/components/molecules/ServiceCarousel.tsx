@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Draggable } from 'gsap/Draggable';
@@ -46,8 +48,8 @@ const ServiceCarousel = () => {
 		const createAutoScroll = () => {
 			return gsap.to(carousel, {
 				x: -totalWidth,
-				duration: 30,
-				ease: 'none',
+				duration: 60,
+				ease: 'linear',
 				repeat: -1,
 				onRepeat: () => {
 					gsap.set(carousel, { x: 0 });
@@ -55,7 +57,7 @@ const ServiceCarousel = () => {
 			});
 		};
 
-		const autoScroll = createAutoScroll();
+		let autoScroll = createAutoScroll();
 
 		Draggable.create(carousel, {
 			type: 'x',
@@ -67,7 +69,19 @@ const ServiceCarousel = () => {
 				autoScroll.pause();
 			},
 			onDragEnd: () => {
-				autoScroll.play();
+				const currentX = gsap.getProperty(carousel, 'x');
+				autoScroll.kill();
+				setTimeout(() => {
+					autoScroll = gsap.to(carousel, {
+						x: Number(currentX) - totalWidth,
+						duration: 30,
+						ease: 'linear',
+						repeat: -1,
+						onRepeat: () => {
+							gsap.set(carousel, { x: 0 });
+						},
+					});
+				}, 1000);
 			},
 		});
 

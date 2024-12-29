@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
@@ -48,7 +50,7 @@ const NewsLetterForm = () => {
 					<button
 						type="submit"
 						disabled={isSubmitting}
-						className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
+						className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-secondary focus:ring-blue-500 transition-colors flex items-center gap-2"
 					>
 						<Send className="w-4 h-4" />
 						<span>S&apos;abonner</span>

@@ -67,18 +67,18 @@ const Hero = () => {
 		<section
 			ref={heroRef}
 			id="hero"
-			className="min-h-screen flex flex-col justify-center items-center space-y-16"
+			className="md:h-[calc(100vh-70px)] mt-[40px] md:mt-[60px] flex flex-col justify-center items-center space-y-16"
 		>
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 				<div
 					ref={imageContainerRef}
 					className="order-2 lg:order-1 flex items-center justify-center "
 				>
-					<div className="relative w-full aspect-square max-w-[600px] mx-auto group">
-						<div className="absolute inset-0 bg-hero-pattern bg-center bg-no-repeat bg-fixed  group-hover:scale-110 group-hover:-rotate-6 transition-transform ease-in duration-500" />
-						<div className="absolute inset-4 overflow-hidden ">
+					<div className="relative w-4/6 md:w-5/6 lg:w-full aspect-square max-w-[600px] mx-auto group">
+						<div className="absolute inset-0 bg-hero-pattern bg-center bg-no-repeat bg-cover scale-110 group-hover:scale-125 group-hover:-rotate-6 transition-transform ease-in duration-500" />
+						<div className="absolute inset-4 overflow-hidden flex items-center justify-center">
 							<Image
-								src="/images/image-01.png"
+								src="/images/photo-01.png"
 								width={500}
 								height={500}
 								alt="Enfant jouant dans un champ"
@@ -94,28 +94,27 @@ const Hero = () => {
 				>
 					<div className="max-w-xl mx-auto lg:mx-0 px-4 py-8">
 						<div className="mb-8">
-							<h1 className="text-[2.5rem] lg:text-6xl font-bold text-orange-600 mb-2 font-barba">
+							<h1 className="text-[2.5rem] lg:text-6xl font-bold text-orange-600 mb-2 font-barba leading-6">
 								Comm&apos;Wow
 							</h1>
-							<span className="text-primary font-cerebri">_________</span>
-							<div className="text-xl md:text-3xl lg:text-5xl font-bold text-orange-600 mb-6">
+							<span className="text-black">_________</span>
+							<div className="text-2xl md:text-3xl lg:text-5xl  font-bold text-orange-600 my-5">
 								Propulsez
 								<br />
-								votre image
+								<span className="text-2xl md:text-3xl lg:text-5xl  font-light">
+									votre image
+								</span>
 							</div>
 						</div>
-						<h2 className="text-xl lg:text-2xl text-orange-500 mb-8 font-cerebri">
-							avec une communication sur-mesure
-						</h2>
 						<div>
-							<p className="text-orange-700 mb-6 font-cerebri text-base md:text-lg xl:text-3xl">
-								Ensemble, on crée une communication qui vous ressemble et qui
-								vous donne des résultats.
+							<p className="text-black mb-6  text-base md:text-lg xl:text-3xl">
+								Ensemble, concevons une communication qui capte l&apos;attention
+								et reflète votre identité.
 							</p>
-							<p className=" text-orange-600 font-cerebri text-sm md:text-base xl:text-xl">
-								Mise en valeur de votre entreprise à travers des solutions
-								visuelles cohérentes et impactantes, tant pour votre présence en
-								ligne que pour vos supports imprimés.
+							<p className=" text-black  text-sm md:text-base xl:text-xl">
+								Des solutions visuelles cohérentes et percutantes, pensées pour
+								valoriser votre entreprise, que ce soit en ligne ou sur vos
+								supports imprimés.
 							</p>
 						</div>
 					</div>

@@ -58,7 +58,7 @@
 
 @layer base {
   *, body, html {
-    font-family: 'Chakra Petch', monospace;
-    font-weight: 700;
+    font-family: Cerebris Sans, sans-serif;
+    font-weight: 400;
   }
 }

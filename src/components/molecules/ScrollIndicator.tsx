@@ -21,7 +21,7 @@ const ScrollIndicator = () => {
 	}, []);
 
 	return (
-		<div className="fixed right-2 top-1/2 -translate-y-1/2 h-[60vh] w-6 flex items-center z-50">
+		<div className="fixed right-2 top-1/2 -translate-y-1/2 h-[60vh] w-6 hidden md:flex items-center z-50 ">
 			<div className="absolute h-full w-[2px] bg-gray-300 left-1/2 -translate-x-1/2 rounded-full">
 				<div
 					className="absolute w-[2px] bg-orange-500 left-1/2 -translate-x-1/2 origin-top rounded-full transition-all duration-200 ease-out"

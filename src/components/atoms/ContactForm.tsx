@@ -1,13 +1,17 @@
+'use client';
+
 import React, { useRef, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Contact, ContactSchema } from '@/types/contact';
 import { Send } from 'lucide-react';
+import { useToasterStore } from '@/stores';
 
 const ContactForm = () => {
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
 	const [isVerified, setIsVerified] = useState(false);
+	const showToast = useToasterStore((state) => state.showToast);
 
 	const initialValues: Contact = {
 		fullname: '',
@@ -21,16 +25,28 @@ const ContactForm = () => {
 		payload: Contact,
 		{ resetForm }: { resetForm: () => void }
 	) => {
-		await fetch('api/contact', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(payload),
-		});
+		try {
+			await fetch('api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(payload),
+			});
 
-		resetForm();
-		recaptchaRef.current?.reset();
+			resetForm();
+			recaptchaRef.current?.reset();
+
+			showToast({
+				message: 'Votre message a bien été envoyé.',
+				type: 'success',
+			});
+		} catch (e) {
+			showToast({
+				message: 'Une erreur est survenue, veuillez réessayer.',
+				type: 'error',
+			});
+		}
 	};
 
 	async function handleCaptchaSubmission(token: string | null) {
@@ -142,7 +158,7 @@ const ContactForm = () => {
 					{/* reCAPTCHA */}
 					<div className="flex flex-col items-center gap-4">
 						<ReCAPTCHA
-							sitekey={process.env.NEXT_PUBLIC_APP_RECAPTCHA_SITE_KEY!}
+							sitekey={process.env.APP_RECAPTCHA_SITE_KEY!}
 							ref={recaptchaRef}
 							onChange={() => handleChange}
 							onExpired={handleExpired}

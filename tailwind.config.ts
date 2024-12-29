@@ -30,6 +30,9 @@ const config: Config = {
 				quaternary: {
 					DEFAULT: '#B59078',
 				},
+				black: {
+					DEFAULT: '#2f312e',
+				},
 			},
 		},
 	},
