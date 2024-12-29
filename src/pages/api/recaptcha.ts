@@ -13,7 +13,7 @@ export default async function handler(
 	const { token } = data;
 	const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
-	if (!token ) {
+	if (!token) {
 		return response.status(400).json({ message: 'Token is required' });
 	}
 	if (!secretKey) {

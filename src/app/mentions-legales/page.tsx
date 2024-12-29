@@ -46,7 +46,8 @@ const Page = () => {
 							Adresse : 24 Chemin de Villonne, 38290 SATOLAS-ET-BONCE, FRANCE
 						</li>
 						<li>
-							Immatriculée au Registre du Commerce et des Sociétés de RCS *******
+							Immatriculée au Registre du Commerce et des Sociétés de RCS
+							*******
 						</li>
 						<li>Numéro TVA intracommunautaire : FR**********</li>
 					</ul>
@@ -62,9 +63,7 @@ const Page = () => {
 						</a>
 					</p>
 
-					<h2 className="text-2xl  text-secondary mt-6 mb-3">
-						HÉBERGEUR
-					</h2>
+					<h2 className="text-2xl  text-secondary mt-6 mb-3">HÉBERGEUR</h2>
 					<p className="mb-4">
 						L’hébergeur du site est la société{' '}
 						<strong className="text-primary">
