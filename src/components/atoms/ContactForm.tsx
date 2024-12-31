@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -71,6 +71,12 @@ const ContactForm = () => {
 			setIsVerified(false);
 		}
 	}
+	
+	useEffect(() => {
+		const captchaValue = recaptchaRef.current?.getValue();
+		
+		console.log(captchaValue);
+	}, [recaptchaRef]);
 
 	return (
 		<Formik
