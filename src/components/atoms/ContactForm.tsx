@@ -71,10 +71,10 @@ const ContactForm = () => {
 			setIsVerified(false);
 		}
 	}
-	
+
 	useEffect(() => {
 		const captchaValue = recaptchaRef.current?.getValue();
-		
+
 		console.log(captchaValue);
 	}, [recaptchaRef]);
 
