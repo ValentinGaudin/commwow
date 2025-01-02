@@ -26,6 +26,13 @@ const ContactForm = () => {
 		{ resetForm }: { resetForm: () => void }
 	) => {
 		try {
+			const captchaValue = recaptchaRef.current?.getValue();
+			if (!captchaValue) {
+				alert('Please verify the reCAPTCHA!');
+			} else {
+				alert('Form submission successful!');
+			}
+
 			await fetch('api/contact', {
 				method: 'POST',
 				headers: {
@@ -51,10 +58,6 @@ const ContactForm = () => {
 
 	async function handleCaptchaSubmission(token: string | null) {
 		const captchaValue = recaptchaRef.current?.getValue();
-
-		console.log(token);
-		console.log(captchaValue);
-
 		try {
 			if (captchaValue && captchaValue.length > 0 && token) {
 				await fetch('/api/recaptcha', {
