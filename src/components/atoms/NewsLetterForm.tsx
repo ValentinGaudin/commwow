@@ -7,11 +7,15 @@ import { Send } from 'lucide-react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import { Newsletter, NewsLetterSchema } from '@/types/contact';
+import { useRecaptcha } from '@/hooks/useRecaptcha';
 import { useToasterStore } from '@/stores';
 
 const NewsLetterForm = () => {
 	const showToast = useToasterStore((state) => state.showToast);
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
+	const { handleCaptchaChange, isVerified } = useRecaptcha({
+		captchaRef: recaptchaRef,
+	});
 
 	const initialValues: Newsletter = {
 		email: '',
@@ -71,7 +75,9 @@ const NewsLetterForm = () => {
 								sitekey={process.env.APP_RECAPTCHA_SITE_KEY_INVISIBLE!}
 								ref={recaptchaRef}
 								/* eslint-disable-next-line @typescript-eslint/no-misused-promises */
-								onChange={() => recaptchaRef.current?.executeAsync()}
+								onChange={() =>
+									recaptchaRef.current?.executeAsync().then(handleCaptchaChange)
+								}
 								size="invisible"
 								badge="bottomright"
 								isolated
@@ -84,7 +90,7 @@ const NewsLetterForm = () => {
 						</div>
 						<button
 							type="submit"
-							disabled={isSubmitting}
+							disabled={isSubmitting || !isVerified}
 							className="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all flex items-center gap-2 shadow-md"
 						>
 							<Send className="w-5 h-5" />
