@@ -15,7 +15,6 @@ import {
 import { CustomSolutions, ScrollIndicator } from '@/components/molecules';
 
 import { ServicesGrid } from '@/components/organisms';
-import Layout from './layout';
 
 export default function Home() {
 	const [loading, setLoading] = useState(false);
