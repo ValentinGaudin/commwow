@@ -11,6 +11,7 @@ const config: Config = {
 		extend: {
 			backgroundImage: {
 				'hero-pattern': "url('/images/hero-pattern.svg')",
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 			},
 			fontFamily: {
 				sans: ['Flode Neue', 'monospace'],
@@ -32,6 +33,10 @@ const config: Config = {
 				},
 				black: {
 					DEFAULT: '#2f312e',
+				},
+				gradients: {
+					first: '#e4358e',
+					second: '#f65e32',
 				},
 			},
 		},

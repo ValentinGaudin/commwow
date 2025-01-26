@@ -43,7 +43,7 @@ const About = () => {
 			<div className="container mx-auto px-4">
 				<div className="flex flex-col lg:flex-row gap-8">
 					<div className="about-card flex-1 lg:flex-none lg:w-1/2">
-						<div className="bg-gradient-to-b lg:bg-gradient-to-bl from-ternary/90 via-primary/90 to-quaternary/90 p-8 rounded-3xl min-h-full flex flex-col items-center justify-evenly group">
+						<div className="bg-gradient-to-br  from-gradients-first to-gradients-second  p-8 rounded-3xl min-h-full flex flex-col items-center justify-evenly group">
 							<div className="mb-6">
 								<Image
 									src="/images/photo-04.png"
@@ -67,7 +67,7 @@ const About = () => {
 						</div>
 					</div>
 
-					<div className="bg-about-card flex flex-wrap bg-gradient-to-b lg:bg-gradient-to-br from-ternary/90 via-primary/90 to-quaternary/90 p-8 rounded-3xl">
+					<div className="bg-about-card flex flex-wrap bg-gradient-to-br from-gradients-first to-gradients-second p-8 rounded-3xl">
 						<div className="about-card grid grid-cols-2 gap-8 items-center group">
 							<div className="mb-6">
 								<Image

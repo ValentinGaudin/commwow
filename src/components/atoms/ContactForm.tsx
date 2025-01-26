@@ -1,24 +1,30 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { Contact, ContactSchema } from '@/types/contact';
 import { Send } from 'lucide-react';
-import { useToasterStore } from '@/stores';
+
+import { Contact, ContactSchema } from '@/types/contact';
+import { useModalStore, useToasterStore } from '@/stores';
+import { useRecaptcha } from '@/hooks/useRecaptcha';
 
 const ContactForm = () => {
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
-	const [isVerified, setIsVerified] = useState(false);
+	const { handleCaptchaChange, isVerified } = useRecaptcha({
+		captchaRef: recaptchaRef,
+		hidden: false,
+	});
 	const showToast = useToasterStore((state) => state.showToast);
+	const { closeContactForm } = useModalStore();
 
 	const initialValues: Contact = {
 		fullname: '',
 		email: '',
-		requestType: 'information',
 		phone: '',
-		subject: '',
+		requestType: 'visual_identity',
+		message: '',
 	};
 
 	const onSubmit = async (
@@ -26,13 +32,6 @@ const ContactForm = () => {
 		{ resetForm }: { resetForm: () => void }
 	) => {
 		try {
-			const captchaValue = recaptchaRef.current?.getValue();
-			if (!captchaValue) {
-				alert('Please verify the reCAPTCHA!');
-			} else {
-				alert('Form submission successful!');
-			}
-
 			await fetch('api/contact', {
 				method: 'POST',
 				headers: {
@@ -43,6 +42,7 @@ const ContactForm = () => {
 
 			resetForm();
 			recaptchaRef.current?.reset();
+			closeContactForm();
 
 			showToast({
 				message: 'Votre message a bien été envoyé.',
@@ -55,31 +55,6 @@ const ContactForm = () => {
 			});
 		}
 	};
-
-	async function handleCaptchaSubmission(token: string | null) {
-		const captchaValue = recaptchaRef.current?.getValue();
-		try {
-			if (captchaValue && captchaValue.length > 0 && token) {
-				await fetch('/api/recaptcha', {
-					method: 'POST',
-					headers: {
-						Accept: 'application/json',
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({ captchaValue }),
-				});
-				setIsVerified(true);
-			}
-		} catch (e) {
-			setIsVerified(false);
-		}
-	}
-
-	useEffect(() => {
-		const captchaValue = recaptchaRef.current?.getValue();
-
-		console.log(captchaValue);
-	}, [recaptchaRef]);
 
 	return (
 		<Formik
@@ -107,20 +82,38 @@ const ContactForm = () => {
 					</div>
 
 					{/* Email */}
-					<div>
-						<label className="block text-sm font-medium text-orange-700">
-							Email
-						</label>
-						<Field
-							name="email"
-							type="email"
-							className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
-						/>
-						<ErrorMessage
-							name="email"
-							component="p"
-							className="text-red-500 text-sm mt-1"
-						/>
+					<div className="w-full flex justify-evenly space-x-2">
+						<div className="w-1/2">
+							<label className="w-full block text-sm font-medium text-orange-700">
+								Email
+							</label>
+							<Field
+								name="email"
+								type="email"
+								className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+							/>
+							<ErrorMessage
+								name="email"
+								component="p"
+								className="text-red-500 text-sm mt-1"
+							/>
+						</div>
+						<div className="w-1/2">
+							{/* Phone */}
+							<label className="block text-sm font-medium text-orange-700">
+								Téléphone
+							</label>
+							<Field
+								name="phone"
+								type="text"
+								className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+							/>
+							<ErrorMessage
+								name="phone"
+								component="p"
+								className="text-red-500 text-sm mt-1"
+							/>
+						</div>
 					</div>
 
 					{/* Objet */}
@@ -129,12 +122,26 @@ const ContactForm = () => {
 							Type de demande
 						</label>
 						<Field
-							as="select"
 							name="requestType"
+							component="select"
+							type="text"
 							className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
 						>
-							<option value="information">Demande d’informations</option>
-							<option value="quote">Demande de devis</option>
+							<option value="visual_identity">
+								J’ai besoin d’une identité visuelle
+							</option>
+							<option value="communication_support">
+								Je souhaite des supports de communication (flyers, cartes,
+								brochures, catalogues, ...)
+							</option>
+							<option value="packaging">J’ai besoin de packaging</option>
+							<option value="social_media">
+								J’ai besoin de déveloper ma présence sur les réseaux sociaux
+							</option>
+							<option value="partnership">
+								Je souhaite faire un partenariat
+							</option>
+							<option value="other">J’ai besoin d’un autre service</option>
 						</Field>
 						<ErrorMessage
 							name="requestType"
@@ -166,7 +173,8 @@ const ContactForm = () => {
 						<ReCAPTCHA
 							sitekey={process.env.APP_RECAPTCHA_SITE_KEY!}
 							ref={recaptchaRef}
-							onChange={() => handleCaptchaSubmission}
+							/* eslint-disable-next-line @typescript-eslint/no-misused-promises */
+							onChange={handleCaptchaChange}
 						/>
 						<ErrorMessage
 							name="recaptcha"

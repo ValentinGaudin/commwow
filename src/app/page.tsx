@@ -15,6 +15,7 @@ import {
 import { CustomSolutions, ScrollIndicator } from '@/components/molecules';
 
 import { ServicesGrid } from '@/components/organisms';
+import Layout from './layout';
 
 export default function Home() {
 	const [loading, setLoading] = useState(false);
@@ -32,7 +33,7 @@ export default function Home() {
 			{loading ? (
 				<Loader />
 			) : (
-				<main>
+				<>
 					<NavigationBar />
 					<ScrollIndicator />
 					<AnimatedArrow />
@@ -55,7 +56,7 @@ export default function Home() {
 						</a>
 						&nbsp; &copy; {new Date().getFullYear()}
 					</footer>
-				</main>
+				</>
 			)}
 		</>
 	);

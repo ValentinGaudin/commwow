@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useMemo, useState } from 'react';
 import { Toast as ToastT } from '@/stores/useToasterStore';
 import { useToasterStore } from '@/stores';
@@ -16,7 +18,7 @@ const Toast = ({ toast }: Props) => {
 
 	const toastColor = useMemo(() => {
 		if (toast.type === 'success') {
-			return 'bg-primary';
+			return 'bg-green-600/70 border-green-600/90';
 		}
 		if (toast.type === 'error') {
 			return 'border-red-600/90 bg-red-600/70';

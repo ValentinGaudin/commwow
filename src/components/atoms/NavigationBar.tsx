@@ -39,6 +39,14 @@ const NavigationBar = () => {
 					</li>
 					<li>
 						<a
+							href="#solutions"
+							className="transition-colors duration-300 hover:text-primary  font-light text-sm md:text-lg lg:text-xl"
+						>
+							Solutions
+						</a>
+					</li>
+					<li>
+						<a
 							href="#contact"
 							className=" transition-colors duration-300 hover:text-primary  font-light text-sm md:text-lg lg:text-xl"
 						>

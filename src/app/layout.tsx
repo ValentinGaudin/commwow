@@ -2,8 +2,7 @@ import React, { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
 
-import { BaseTemplate } from '@/components/templates';
-import { Header } from '@/components/organisms';
+import { Header, Toaster } from '@/components/organisms';
 
 import '@/styles/global.css';
 
@@ -18,12 +17,13 @@ export default function RootLayout({
 	children: ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="fr">
 			<body>
-				<BaseTemplate>
+				<header id="portal-root" className="fixed w-full z-[999]" />
+				<Toaster>
 					<Header />
 					{children}
-				</BaseTemplate>
+				</Toaster>
 			</body>
 		</html>
 	);

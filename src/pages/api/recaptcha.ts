@@ -9,12 +9,18 @@ export default async function handler(
 		return response.status(405).json({ message: 'Method not allowed' });
 	}
 
-	const data = (await request.body) as { token: string };
-	const { token } = data;
-	const secretKey = process.env.APP_RECAPTCHA_SECRET_KEY;
+	const data = (await request.body) as {
+		captchaValue: string;
+		hidden: boolean;
+	};
 
-	if (!token) {
-		return response.status(400).json({ message: 'Token is required' });
+	const captchaValue = data.captchaValue;
+	const secretKey = !data.hidden
+		? process.env.APP_RECAPTCHA_SECRET_KEY
+		: process.env.APP_RECAPTCHA_SECRET_KEY_INVISIBLE;
+
+	if (!captchaValue) {
+		return response.status(400).json({ message: 'Captcha value is required' });
 	}
 	if (!secretKey) {
 		return response.status(400).json({ message: 'Secret key is required' });
@@ -22,7 +28,7 @@ export default async function handler(
 
 	try {
 		const recaptchaResponse = await fetch(
-			`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
+			`https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaValue}`,
 			{
 				method: 'POST',
 				headers: {

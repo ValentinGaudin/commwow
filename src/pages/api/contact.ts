@@ -1,15 +1,32 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { ResponseData } from '@/types/api';
-import { Newsletter, NewsLetterSchema } from '@/types/contact';
+import { Contact, ContactSchema, RequestTypeKey } from '@/types/contact';
+
+const matchListRequestType = (requestType: RequestTypeKey) => {
+	switch (requestType) {
+		case 'visual_identity':
+			return 9;
+		case 'communication_support':
+			return 10;
+		case 'packaging':
+			return 11;
+		case 'social_media':
+			return 12;
+		case 'partnership':
+			return 13;
+		case 'other':
+			return 14;
+	}
+};
 
 export default async function handler(
 	request: NextApiRequest,
 	response: NextApiResponse<ResponseData>
 ) {
 	try {
-		const data = (await request.body) as Newsletter;
+		const data = (await request.body) as Contact;
 
-		const emailValidation = NewsLetterSchema.safeParse(data);
+		const emailValidation = ContactSchema.safeParse(data);
 
 		if (!emailValidation.success) {
 			return response.status(422).json({ message: 'Invalid email' });
@@ -27,8 +44,13 @@ export default async function handler(
 
 		const emailData = {
 			email: emailValidation.data.email,
-			listIds: [8],
+			listIds: [matchListRequestType(emailValidation.data.requestType)],
 			updateEnabled: true,
+			attributes: {
+				fullName: emailValidation.data.fullname,
+				request_type: emailValidation.data.requestType,
+				message: emailValidation.data.message,
+			},
 		};
 
 		const brevoResponse = await fetch(url, {

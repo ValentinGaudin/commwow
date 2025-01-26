@@ -1,13 +1,34 @@
 import { z } from 'zod';
 
+export type RequestTypeKey =
+	| 'visual_identity'
+	| 'communication_support'
+	| 'packaging'
+	| 'social_media'
+	| 'partnership'
+	| 'other';
+
 export const ContactSchema = z.object({
-	fullname: z.string().min(2, 'Nom trop court'),
+	fullname: z.string().min(2, 'Nom trop court').max(50, 'Nom trop long'),
 	email: z.string().email('Email invalide'),
-	requestType: z.enum(['information', 'devis'], {
-		required_error: 'Veuillez sélectionner un type de demande',
-	}),
 	phone: z.string().optional(),
-	subject: z.string().min(5, 'Sujet trop court'),
+	requestType: z.enum(
+		[
+			'visual_identity',
+			'communication_support',
+			'packaging',
+			'social_media',
+			'other',
+			'partnership',
+		],
+		{
+			required_error: 'Veuillez sélectionner un type de demande',
+		}
+	),
+	message: z
+		.string()
+		.min(10, 'Le message est trop court (min. 10 caractères)')
+		.max(500, 'Le message est trop long (max. 500 caractères)'),
 });
 
 export type Contact = z.infer<typeof ContactSchema>;

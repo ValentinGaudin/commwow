@@ -9,6 +9,7 @@ export { default as Services } from './Services';
 export { default as ServiceCard } from './ServiceCard';
 export { default as NavigationBar } from './NavigationBar';
 export { default as About } from './About';
+export { default as Toast } from './Toast';
 export { default as Modal } from './Modal';
 export { default as ContactForm } from './ContactForm';
 export { default as NewsLetterForm } from './NewsLetterForm';

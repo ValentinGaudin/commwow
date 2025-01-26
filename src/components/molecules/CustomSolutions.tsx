@@ -57,8 +57,6 @@ const CustomSolutions = () => {
 		return () => ctx.revert();
 	}, []);
 
-	useEffect(() => {}, []);
-
 	useEffect(() => {
 		const ctx = gsap.context(() => {
 			const timeline = gsap.timeline({
@@ -74,13 +72,13 @@ const CustomSolutions = () => {
 				.from(cardsRef.current, {
 					opacity: 0,
 					stagger: 0.6,
-					duration: 1.5,
+					duration: 1,
 					ease: 'power1.out',
 				})
 				.from(buttonContactRef.current, {
 					opacity: 0,
 					x: -100,
-					duration: 1.5,
+					duration: 1,
 					ease: 'power1.out',
 				})
 				.from(
@@ -88,25 +86,25 @@ const CustomSolutions = () => {
 					{
 						opacity: 0,
 						x: 100,
-						duration: 1.5,
+						duration: 1,
 						ease: 'power1.out',
 					},
-					'+=0.5'
+					'+=0.3'
 				)
 				.from(
 					newsLetterTitleFormRef.current,
 					{
 						opacity: 0,
 						y: -100,
-						duration: 1.5,
+						duration: 1,
 						ease: 'power1.out',
 					},
-					'+=0.5'
+					'+=0.3'
 				)
 				.from(newsLetterBoxFormRef.current, {
 					opacity: 0,
 					y: 200,
-					duration: 1.5,
+					duration: 1,
 					ease: 'power2.out',
 				});
 		});
@@ -117,16 +115,16 @@ const CustomSolutions = () => {
 	return (
 		<section
 			ref={sectionRef}
-			id="contact"
+			id="solutions"
 			className="py-20 bg-orange-50 overflow-hidden"
 		>
 			<div className="container mx-auto">
-				<div ref={startCard} className="space-y-2 mb-5">
+				<div ref={startCard} className="space-y-2 mb-5 p-4 md:p-6 lg:p-5">
 					<h2 className="text-4xl lg:text-5xl font-bold  text-orange-500">
 						Solutions sur mesure nées d&apos;une écoute attentive
 					</h2>
 					<div className="w-32 h-1 bg-orange-400 rounded-full" />
-					<p className="line-clamp-2">
+					<p>
 						Chaque entreprise est unique, et vos besoins le sont tout autant.
 						Chez Comm’Wow, pas d’offres rigides : chaque collaboration repose
 						sur un véritable échange pour concevoir des solutions
@@ -164,7 +162,7 @@ const CustomSolutions = () => {
 					))}
 				</div>
 
-				<div ref={bottomCard} className="px-2 md:px-16 lg:px-32">
+				<div id="contact" ref={bottomCard} className="px-2 md:px-16 lg:px-32">
 					<Card>
 						<div className="flex flex-col sm:flex-row items-center space-y-4 justify-between lg:mx-28 z-20">
 							<OpenModalButton ref={buttonContactRef} />
