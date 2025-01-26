@@ -175,6 +175,7 @@ const ContactForm = () => {
 							ref={recaptchaRef}
 							/* eslint-disable-next-line @typescript-eslint/no-misused-promises */
 							onChange={handleCaptchaChange}
+							isolated
 						/>
 						<ErrorMessage
 							name="recaptcha"

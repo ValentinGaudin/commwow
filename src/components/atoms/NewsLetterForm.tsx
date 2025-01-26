@@ -7,16 +7,11 @@ import { Send } from 'lucide-react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import { Newsletter, NewsLetterSchema } from '@/types/contact';
-import { useRecaptcha } from '@/hooks/useRecaptcha';
 import { useToasterStore } from '@/stores';
 
 const NewsLetterForm = () => {
 	const showToast = useToasterStore((state) => state.showToast);
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
-	const { handleCaptchaChange, isVerified } = useRecaptcha({
-		captchaRef: recaptchaRef,
-		hidden: true,
-	});
 
 	const initialValues: Newsletter = {
 		email: '',
@@ -26,15 +21,8 @@ const NewsLetterForm = () => {
 		payload: Newsletter,
 		{ resetForm }: { resetForm: () => void }
 	) => {
-		if (!isVerified) {
-			showToast({
-				message: 'Veuillez vérifier le reCAPTCHA.',
-				type: 'error',
-			});
-			return;
-		}
-
 		try {
+			// await handleCaptchaChange();
 			await fetch('/api/newsletter/subscribe', {
 				method: 'POST',
 				headers: {
@@ -83,10 +71,10 @@ const NewsLetterForm = () => {
 								sitekey={process.env.APP_RECAPTCHA_SITE_KEY_INVISIBLE!}
 								ref={recaptchaRef}
 								/* eslint-disable-next-line @typescript-eslint/no-misused-promises */
-								onChange={handleCaptchaChange}
-								className="recaptcha-container"
-								hl="fr"
+								onChange={() => recaptchaRef.current?.executeAsync()}
 								size="invisible"
+								badge="bottomright"
+								isolated
 							/>
 							<ErrorMessage
 								name="recaptcha"
@@ -96,14 +84,8 @@ const NewsLetterForm = () => {
 						</div>
 						<button
 							type="submit"
-							disabled={isSubmitting || !isVerified}
+							disabled={isSubmitting}
 							className="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all flex items-center gap-2 shadow-md"
-							onClick={(e) => {
-								e.preventDefault(); // Empêche la soumission normale
-								if (recaptchaRef.current) {
-									recaptchaRef.current.execute(); // Exécute le reCAPTCHA invisible
-								}
-							}}
 						>
 							<Send className="w-5 h-5" />
 							<span>S&apos;abonner</span>
