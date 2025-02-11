@@ -50,10 +50,10 @@ const ContactCard = () => {
 	return (
 		<div id="contact" ref={contactCard} className="px-2 md:px-16 lg:px-32">
 			<Card>
-				<div className="flex flex-col sm:flex-row items-center space-y-4 justify-between lg:mx-28 z-20">
+				<div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 justify-between lg:mx-28 z-20">
 					<OpenModalButton ref={buttonContactRef} />
 
-					<div ref={socialMediaRef} className="flex items-center gap-6">
+					<div ref={socialMediaRef} className="flex gap-6">
 						<a
 							href="https://instagram.com/CommWow"
 							className="text-orange-600 hover:text-orange-700 transition-colors"

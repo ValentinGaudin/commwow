@@ -46,11 +46,6 @@ export default async function handler(
 			email: emailValidation.data.email,
 			listIds: [matchListRequestType(emailValidation.data.requestType)],
 			updateEnabled: true,
-			attributes: {
-				fullName: emailValidation.data.fullname,
-				request_type: emailValidation.data.requestType,
-				message: emailValidation.data.message,
-			},
 		};
 
 		const brevoResponse = await fetch(url, {

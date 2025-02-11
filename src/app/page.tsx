@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 
 import {
 	About,
@@ -12,13 +11,14 @@ import {
 	ContactModal,
 	AnimatedArrow,
 	Wave,
+	Footer,
 } from '@/components/atoms';
 
 import { CustomSolutions, ScrollIndicator } from '@/components/molecules';
 import { ServicesGrid } from '@/components/organisms';
 
 export default function Home() {
-	const [loading, setLoading] = useState(false);
+	const [isDomReady, setIsDomReady] = useState(true);
 
 	useEffect(() => {
 		const handleAnchorClick = (event: MouseEvent) => {
@@ -54,15 +54,19 @@ export default function Home() {
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			setLoading(false);
+			setIsDomReady(false);
 		}, 1500);
 
 		return () => clearTimeout(timer);
 	}, []);
 
+	useEffect(() => {
+		setIsDomReady(true);
+	}, []);
+
 	return (
 		<>
-			{loading ? (
+			{isDomReady ? (
 				<Loader />
 			) : (
 				<>
@@ -76,23 +80,7 @@ export default function Home() {
 					<CustomSolutions />
 					<ContactModal />
 					<Wave className="mt-10" classNamePath="fill-primary/90" />
-					<footer className="bg-primary/90 text-white text-center text-sm">
-						<div className="mr-2">
-							<p>
-								Made with ❤️ by &nbsp;
-								<a
-									href="https://www.linkedin.com/in/gaudinvalentin/"
-									target="_blank"
-									rel="noreferrer"
-									className="underline hover:text-orange-200 transition-colors duration-300"
-								>
-									Valentin Gaudin
-								</a>
-								&nbsp; &copy; {new Date().getFullYear()}
-							</p>
-						</div>
-						<Link href="/mentions-legales">Mentions légales</Link>
-					</footer>
+					<Footer />
 				</>
 			)}
 		</>

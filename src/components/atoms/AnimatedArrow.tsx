@@ -73,7 +73,6 @@ const AnimatedArrow = () => {
 				right: '5%',
 				transform: 'translateX(-50%)',
 				fontSize: '2rem',
-				cursor: 'pointer',
 				opacity: 0,
 				zIndex: 100,
 			}}

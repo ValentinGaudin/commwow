@@ -48,8 +48,8 @@ const NewsLetterForm = () => {
 			validationSchema={toFormikValidationSchema(NewsLetterSchema)}
 			onSubmit={onSubmit}
 		>
-			{({ isSubmitting, errors }) => (
-				<Form className="flex flex-col items-center gap-4 max-w-lg w-full mx-auto p-4 bg-white shadow-md rounded-lg">
+			{({ isSubmitting }) => (
+				<Form className="flex flex-col items-center gap-4 max-w-lg w-full mx-auto p-4 bg-white shadow-md rounded-xl">
 					<div className="flex-1 w-full">
 						{/* Champ email */}
 						<Field
