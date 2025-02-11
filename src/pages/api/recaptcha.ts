@@ -15,9 +15,7 @@ export default async function handler(
 	};
 
 	const captchaValue = data.captchaValue;
-	const secretKey = !data.hidden
-		? process.env.APP_RECAPTCHA_SECRET_KEY
-		: process.env.APP_RECAPTCHA_SECRET_KEY_INVISIBLE;
+	const secretKey = process.env.APP_RECAPTCHA_SECRET_KEY;
 
 	if (!captchaValue) {
 		return response.status(400).json({ message: 'Captcha value is required' });

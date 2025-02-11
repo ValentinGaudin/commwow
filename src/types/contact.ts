@@ -9,7 +9,7 @@ export type RequestTypeKey =
 	| 'other';
 
 export const ContactSchema = z.object({
-	fullname: z.string().min(2, 'Nom trop court').max(50, 'Nom trop long'),
+	fullName: z.string().min(2, 'Nom trop court').max(50, 'Nom trop long'),
 	email: z.string().email('Email invalide'),
 	phone: z.string().optional(),
 	requestType: z.enum(
@@ -34,7 +34,10 @@ export const ContactSchema = z.object({
 export type Contact = z.infer<typeof ContactSchema>;
 
 export const NewsLetterSchema = z.object({
-	email: z.string().email('Email invalid'),
+	email: z
+		.string()
+		.email('Email invalid')
+		.min(1, { message: 'First Name is required' }),
 });
 
 export type Newsletter = z.infer<typeof NewsLetterSchema>;

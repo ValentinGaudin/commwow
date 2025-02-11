@@ -1,5 +1,6 @@
 export { default as ApplicationLogo } from './ApplicationLogo';
 export { default as Card } from './Card';
+export { default as ContactCard } from '../molecules/ContactCard';
 export { default as Loader } from './Loader';
 export { default as AnimatedArrow } from './AnimatedArrow';
 export { default as ContactModal } from './ContactModal';

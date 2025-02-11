@@ -48,7 +48,7 @@ const NewsLetterForm = () => {
 			validationSchema={toFormikValidationSchema(NewsLetterSchema)}
 			onSubmit={onSubmit}
 		>
-			{({ isSubmitting }) => (
+			{({ isSubmitting, errors }) => (
 				<Form className="flex flex-col items-center gap-4 max-w-lg w-full mx-auto p-4 bg-white shadow-md rounded-lg">
 					<div className="flex-1 w-full">
 						{/* Champ email */}
@@ -58,6 +58,7 @@ const NewsLetterForm = () => {
 							placeholder="Entrez votre email"
 							className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-shadow shadow-sm placeholder-gray-400"
 						/>
+
 						<ErrorMessage
 							name="email"
 							component="p"

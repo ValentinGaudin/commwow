@@ -2,26 +2,16 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Mail } from 'lucide-react';
 
-import { InstagramIcon, FacebookIcon } from '@/components/atoms/icons';
-import {
-	Card,
-	NewsLetterForm,
-	OpenModalButton,
-	PricingCard,
-} from '@/components/atoms';
+import { Card, PricingCard } from '@/components/atoms';
+import { ContactCard, NewsLetterCard } from '@/components/molecules';
 
 import { pricingData } from '@/data/pricing';
 
 const CustomSolutions = () => {
 	const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
 	const sectionRef = useRef<HTMLDivElement>(null);
-	const newsLetterTitleFormRef = useRef<HTMLDivElement>(null);
-	const newsLetterBoxFormRef = useRef<HTMLDivElement>(null);
-	const buttonContactRef = useRef<HTMLButtonElement>(null);
-	const socialMediaRef = useRef<HTMLDivElement>(null);
-	const bottomCard = useRef<HTMLDivElement>(null);
 	const startCard = useRef<HTMLDivElement>(null);
 	const cardsRef = useRef<HTMLDivElement[]>([]);
 
@@ -39,19 +29,6 @@ const CustomSolutions = () => {
 				duration: 0.8,
 				delay: 0.4,
 			});
-
-			gsap.from(bottomCard.current, {
-				scrollTrigger: {
-					trigger: sectionRef.current,
-					start: 'top bottom+=50',
-					end: 'bottom',
-					toggleActions: 'play none none reverse',
-				},
-				x: 50,
-				opacity: 0,
-				duration: 0.8,
-				delay: 0.6,
-			});
 		});
 
 		return () => ctx.revert();
@@ -68,45 +45,12 @@ const CustomSolutions = () => {
 				},
 			});
 
-			timeline
-				.from(cardsRef.current, {
-					opacity: 0,
-					stagger: 0.6,
-					duration: 1,
-					ease: 'power1.out',
-				})
-				.from(buttonContactRef.current, {
-					opacity: 0,
-					x: -100,
-					duration: 1,
-					ease: 'power1.out',
-				})
-				.from(
-					socialMediaRef.current,
-					{
-						opacity: 0,
-						x: 100,
-						duration: 1,
-						ease: 'power1.out',
-					},
-					'+=0.3'
-				)
-				.from(
-					newsLetterTitleFormRef.current,
-					{
-						opacity: 0,
-						y: -100,
-						duration: 1,
-						ease: 'power1.out',
-					},
-					'+=0.3'
-				)
-				.from(newsLetterBoxFormRef.current, {
-					opacity: 0,
-					y: 200,
-					duration: 1,
-					ease: 'power2.out',
-				});
+			timeline.from(cardsRef.current, {
+				opacity: 0,
+				stagger: 0.6,
+				duration: 1,
+				ease: 'power1.out',
+			});
 		});
 
 		return () => ctx.revert();
@@ -162,46 +106,9 @@ const CustomSolutions = () => {
 					))}
 				</div>
 
-				<div id="contact" ref={bottomCard} className="px-2 md:px-16 lg:px-32">
-					<Card>
-						<div className="flex flex-col sm:flex-row items-center space-y-4 justify-between lg:mx-28 z-20">
-							<OpenModalButton ref={buttonContactRef} />
+				<ContactCard />
 
-							<div ref={socialMediaRef} className="flex items-center gap-6">
-								<a
-									href="https://instagram.com/CommWow"
-									className="text-orange-600 hover:text-orange-700 transition-colors"
-								>
-									<InstagramIcon />
-								</a>
-								<a
-									href="https://facebook.com/CommWow"
-									className="text-orange-600 hover:text-orange-700 transition-colors"
-								>
-									<FacebookIcon />
-								</a>
-								<a
-									href="mailto:chloe@commwow.fr"
-									className="text-orange-600 hover:text-orange-700 transition-colors"
-								>
-									<Mail className="w-6 h-6" />
-								</a>
-							</div>
-						</div>
-					</Card>
-				</div>
-
-				<div className="text-center mt-12 newsletter-box">
-					<h3
-						className="text-2xl font-bold text-primary mb-6"
-						ref={newsLetterTitleFormRef}
-					>
-						Restez informé de nos actualités
-					</h3>
-					<div className="flex justify-center" ref={newsLetterBoxFormRef}>
-						<NewsLetterForm />
-					</div>
-				</div>
+				<NewsLetterCard />
 			</div>
 		</section>
 	);

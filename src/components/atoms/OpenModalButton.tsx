@@ -15,7 +15,7 @@ const OpenModalButton = forwardRef<
 				openContactForm();
 				if (props.onClick) props.onClick(e);
 			}}
-			className="bg-orange-600 text-white  px-4 py-2 rounded hover:bg-primary focus:ring-blue-500 hover:text-amber-50 transition-colors duration-300"
+			className={`bg-orange-600 text-white  px-4 py-2 rounded hover:bg-primary focus:ring-amber-200/90 hover:text-amber-50 transition-colors duration-300 ${props.className}`}
 		>
 			Contactez-moi
 		</button>

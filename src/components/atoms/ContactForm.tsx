@@ -14,13 +14,12 @@ const ContactForm = () => {
 	const recaptchaRef = useRef<ReCAPTCHA>(null);
 	const { handleCaptchaChange, isVerified } = useRecaptcha({
 		captchaRef: recaptchaRef,
-		hidden: false,
 	});
 	const showToast = useToasterStore((state) => state.showToast);
 	const { closeContactForm } = useModalStore();
 
 	const initialValues: Contact = {
-		fullname: '',
+		fullName: '',
 		email: '',
 		phone: '',
 		requestType: 'visual_identity',
@@ -64,28 +63,26 @@ const ContactForm = () => {
 		>
 			{({ isSubmitting }) => (
 				<Form className="space-y-6 max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-					{/* Nom complet */}
 					<div>
 						<label className="block text-sm font-medium text-orange-700">
-							Nom complet
+							Nom complet <span className="text-red-500">*</span>
 						</label>
 						<Field
-							name="fullname"
+							name="fullName"
 							type="text"
 							className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
 						/>
 						<ErrorMessage
-							name="fullname"
+							name="fullName"
 							component="p"
 							className="text-red-500 text-sm mt-1"
 						/>
 					</div>
 
-					{/* Email */}
 					<div className="w-full flex justify-evenly space-x-2">
 						<div className="w-1/2">
 							<label className="w-full block text-sm font-medium text-orange-700">
-								Email
+								Email <span className="text-red-500">*</span>
 							</label>
 							<Field
 								name="email"
@@ -99,7 +96,6 @@ const ContactForm = () => {
 							/>
 						</div>
 						<div className="w-1/2">
-							{/* Phone */}
 							<label className="block text-sm font-medium text-orange-700">
 								Téléphone
 							</label>
@@ -116,10 +112,9 @@ const ContactForm = () => {
 						</div>
 					</div>
 
-					{/* Objet */}
 					<div>
 						<label className="block text-sm font-medium text-orange-700">
-							Type de demande
+							Type de demande <span className="text-red-500">*</span>
 						</label>
 						<Field
 							name="requestType"
@@ -150,10 +145,9 @@ const ContactForm = () => {
 						/>
 					</div>
 
-					{/* Message */}
 					<div>
 						<label className="block text-sm font-medium text-orange-700">
-							Message
+							Message <span className="text-red-500">*</span>
 						</label>
 						<Field
 							name="message"
@@ -168,7 +162,6 @@ const ContactForm = () => {
 						/>
 					</div>
 
-					{/* reCAPTCHA */}
 					<div className="flex flex-col items-center gap-4">
 						<ReCAPTCHA
 							sitekey={process.env.APP_RECAPTCHA_SITE_KEY!}
@@ -184,7 +177,6 @@ const ContactForm = () => {
 						/>
 					</div>
 
-					{/* Bouton de soumission */}
 					<div className="flex justify-center">
 						<button
 							type="submit"

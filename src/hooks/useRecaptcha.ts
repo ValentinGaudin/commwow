@@ -3,10 +3,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 type Props = {
 	captchaRef: RefObject<ReCAPTCHA>;
-	hidden?: boolean;
 };
 
-export const useRecaptcha = ({ captchaRef, hidden = false }: Props) => {
+export const useRecaptcha = ({ captchaRef }: Props) => {
 	const [isVerified, setIsVerified] = useState(false);
 
 	const handleCaptchaSubmission = async () => {
@@ -20,7 +19,7 @@ export const useRecaptcha = ({ captchaRef, hidden = false }: Props) => {
 						Accept: 'application/json',
 						'Content-Type': 'application/json',
 					},
-					body: JSON.stringify({ captchaValue, hidden }),
+					body: JSON.stringify({ captchaValue }),
 				});
 
 				setIsVerified(true);

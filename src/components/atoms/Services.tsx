@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Users, Briefcase, Award, Target } from 'lucide-react';
-import { Wave } from '@/components/atoms/index';
 
 const Services = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
@@ -29,10 +28,8 @@ const Services = () => {
 
 	return (
 		<>
-			<Wave classNamePath="fill-quaternary" />
 			<section
 				ref={sectionRef}
-				id="services"
 				className="bg-quaternary py-20 z-50"
 			>
 				<div className="container mx-auto px-4">
@@ -102,7 +99,6 @@ const Services = () => {
 					</div>
 				</div>
 			</section>
-			<Wave className="rotate-180 -mt-1" classNamePath="fill-quaternary" />
 		</>
 	);
 };
