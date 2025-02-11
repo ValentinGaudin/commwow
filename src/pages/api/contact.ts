@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+
 import { ResponseData } from '@/types/api';
 import { Contact, ContactSchema, RequestTypeKey } from '@/types/contact';
 
