@@ -19,7 +19,8 @@ const ContactForm = () => {
 	const { closeContactForm } = useModalStore();
 
 	const initialValues: Contact = {
-		fullName: '',
+		firstName: '',
+		lastName: '',
 		email: '',
 		phone: '',
 		requestType: 'visual_identity',
@@ -63,20 +64,37 @@ const ContactForm = () => {
 		>
 			{({ isSubmitting }) => (
 				<Form className="space-y-6 max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-					<div>
-						<label className="block text-sm font-medium text-orange-700">
-							Nom complet <span className="text-red-500">*</span>
-						</label>
-						<Field
-							name="fullName"
-							type="text"
-							className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
-						/>
-						<ErrorMessage
-							name="fullName"
-							component="p"
-							className="text-red-500 text-sm mt-1"
-						/>
+					<div className="w-full flex justify-evenly space-x-2">
+						<div className="w-1/2">
+							<label className="w-full block text-sm font-medium text-orange-700">
+								Prénom <span className="text-red-500">*</span>
+							</label>
+							<Field
+								name="firstName"
+								type="text"
+								className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+							/>
+							<ErrorMessage
+								name="firstName"
+								component="p"
+								className="text-red-500 text-sm mt-1"
+							/>
+						</div>
+						<div className="w-1/2">
+							<label className="block text-sm font-medium text-orange-700">
+								Nom <span className="text-red-500">*</span>
+							</label>
+							<Field
+								name="lastName"
+								type="text"
+								className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
+							/>
+							<ErrorMessage
+								name="lastName"
+								component="p"
+								className="text-red-500 text-sm mt-1"
+							/>
+						</div>
 					</div>
 
 					<div className="w-full flex justify-evenly space-x-2">
@@ -122,19 +140,17 @@ const ContactForm = () => {
 							type="text"
 							className="mt-1 w-full px-4 py-2 rounded-lg border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
 						>
-							<option value="visual_identity">
-								J’ai besoin d’une identité visuelle
-							</option>
 							<option value="communication_support">
-								Je souhaite des supports de communication (flyers, cartes,
-								brochures, catalogues, ...)
+								J’ai besoin de supports de communication
 							</option>
-							<option value="packaging">J’ai besoin de packaging</option>
 							<option value="social_media">
-								J’ai besoin de déveloper ma présence sur les réseaux sociaux
+								Je veux développer mes réseaux sociaux
 							</option>
-							<option value="partnership">
-								Je souhaite faire un partenariat
+							<option value="visual_identity">
+								J’aimerais moderniser mon identité visuelle
+							</option>
+							<option value="rates">
+								Je veux obtenir votre grille tarifaire
 							</option>
 							<option value="other">J’ai besoin d’un autre service</option>
 						</Field>

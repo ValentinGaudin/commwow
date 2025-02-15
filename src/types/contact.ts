@@ -1,29 +1,26 @@
 import { z } from 'zod';
 
 export type RequestTypeKey =
-	| 'visual_identity'
 	| 'communication_support'
-	| 'packaging'
 	| 'social_media'
-	| 'partnership'
+	| 'visual_identity'
+	| 'rates'
 	| 'other';
 
 export const ContactSchema = z.object({
-	fullName: z.string().min(2, 'Nom trop court').max(50, 'Nom trop long'),
+	firstName: z.string().min(1, 'Prémom trop court').max(50, 'Nom trop long'),
+	lastName: z.string().min(1, 'Nom trop court').max(50, 'Nom trop long'),
 	email: z.string().email('Email invalide'),
 	phone: z.string().optional(),
 	requestType: z.enum(
 		[
-			'visual_identity',
 			'communication_support',
-			'packaging',
 			'social_media',
+			'visual_identity',
+			'rates',
 			'other',
-			'partnership',
 		],
-		{
-			required_error: 'Veuillez sélectionner un type de demande',
-		}
+		{ message: 'Type de demande invalide' }
 	),
 	message: z
 		.string()
