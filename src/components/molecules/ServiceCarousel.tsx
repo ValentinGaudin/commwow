@@ -13,25 +13,6 @@ const ServiceCarousel = () => {
 	const carouselRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const ctx = gsap.context(() => {
-			gsap.from('.carousel', {
-				scrollTrigger: {
-					trigger: containerRef.current,
-					start: 'top bottom-=100',
-					end: 'bottom',
-					toggleActions: 'play none none reverse',
-				},
-				x: -500,
-				opacity: 0,
-				duration: 4,
-				stagger: 0.2,
-			});
-		});
-
-		return () => ctx.revert();
-	}, []);
-
-	useEffect(() => {
 		if (!carouselRef.current || !containerRef.current) return;
 
 		const carousel = carouselRef.current;

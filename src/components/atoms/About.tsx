@@ -53,7 +53,7 @@ const About = () => {
 							<h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg group-hover:scale-105 ease-in-out duration-500">
 								Pourquoi <span className="font-barba">Comm’ Wow</span>
 							</h3>
-							<p className="text-amber-50 text-sm font-light">
+							<p className="text-amber-50 text-sm font-light text-pretty">
 								Comm&apos;Wow est né pour répondre aux besoins des petites
 								entreprises, artisans et agriculteurs, souvent laissés de côté
 								en matière de communication. L&apos;objectif ? Proposer des
@@ -64,7 +64,7 @@ const About = () => {
 						</div>
 					</div>
 
-					<div className="bg-about-card flex flex-wrap bg-background-three bg-right-bottom p-8 rounded-3xl">
+					<div className="bg-about-card flex flex-wrap bg-background-three bg-right-bottom bg-cover p-8 rounded-3xl">
 						<div className="about-card grid grid-cols-2 gap-8 items-center justify-items-center group">
 							<Image
 								className="rounded-3xl transform shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl"
@@ -77,7 +77,7 @@ const About = () => {
 								<h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg group-hover:scale-105 transition duration-500">
 									Qui suis-je ?
 								</h3>
-								<p className="text-amber-50 text-sm font-light">
+								<p className="text-amber-50 text-sm font-light text-pretty">
 									Entrepreneure passionnée par la communication et le marketing,
 									j&apos;ai à cœur d’accompagner les entreprises avec des
 									solutions sur-mesure. Toujours curieuse et en quête
@@ -100,7 +100,7 @@ const About = () => {
 								<h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg group-hover:scale-105 transition duration-500">
 									Mon engagement
 								</h3>
-								<p className="text-amber-50 text-sm font-light">
+								<p className="text-amber-50 text-sm font-light text-pretty">
 									Accompagner chaque client dans la création d’une communication
 									solide et professionnelle, adaptée à son identité et à ses
 									besoins. Qu&apos;il s&apos;agisse de présence en ligne ou de
