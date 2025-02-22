@@ -71,7 +71,7 @@ const legalNotices = [
 	},
 ];
 
-const Page = () => {
+const MentionsLegales = () => {
 	return (
 		<section className="h-svh">
 			<div className="min-h-screen">
@@ -99,23 +99,21 @@ const Page = () => {
 									<div className="mt-2 text-gray-700 ">
 										{legalNotice.content.map((item, key) => (
 											<p key={key}>
-												{item
-													.split(/(https?:\/\/[^\s]+)/g)
-													.map((part, index) =>
-														part.match(/https?:\/\//) ? (
-															<a
-																key={index}
-																href={part}
-																target="_blank"
-																rel="noreferrer"
-																className="underline hover:text-orange-400 transition-colors duration-300"
-															>
-																{part}
-															</a>
-														) : (
-															part
-														)
-													)}
+												{item.split(/(https?:\/\/[^\s]+)/g).map((part, k) =>
+													part.match(/https?:\/\//) ? (
+														<a
+															key={k}
+															href={part}
+															target="_blank"
+															rel="noreferrer"
+															className="underline hover:text-orange-400 transition-colors duration-300"
+														>
+															{part}
+														</a>
+													) : (
+														part
+													)
+												)}
 											</p>
 										))}
 									</div>
@@ -131,4 +129,4 @@ const Page = () => {
 	);
 };
 
-export default Page;
+export default MentionsLegales;

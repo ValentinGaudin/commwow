@@ -63,9 +63,7 @@ const Toast = ({ toast }: Props) => {
 		>
 			<div className={`mx-2`}>{toastIcon}</div>
 			<div className="flex items-center justify-between w-full py-3 px-1">
-				<div
-					className={`text-sm font-bold items-center text-dark`}
-				>
+				<div className={`text-sm font-bold items-center text-dark`}>
 					{toast.message}
 				</div>
 				<svg

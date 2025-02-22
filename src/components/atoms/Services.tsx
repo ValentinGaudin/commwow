@@ -28,10 +28,7 @@ const Services = () => {
 
 	return (
 		<>
-			<section
-				ref={sectionRef}
-				className="bg-quaternary py-20 z-50"
-			>
+			<section ref={sectionRef} className="bg-quaternary py-20 z-50">
 				<div className="container mx-auto px-4">
 					<div className="text-center mb-16">
 						<h2 className="text-4xl font-barba font-bold text-white mb-4">

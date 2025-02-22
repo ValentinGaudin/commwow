@@ -7,7 +7,9 @@ type Props = {
 
 const Footer = ({ className }: Props) => {
 	return (
-		<footer className={`bg-primary/90 text-white text-center text-sm ${className}`}>
+		<footer
+			className={`bg-primary/90 text-white text-center text-sm ${className}`}
+		>
 			<div className="flex flex-col md:flex-row justify-center items-center gap-4">
 				<Link
 					href="/mentions-legales"

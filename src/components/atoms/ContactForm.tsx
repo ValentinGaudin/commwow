@@ -45,7 +45,7 @@ const ContactForm = () => {
 			closeContactForm();
 
 			showToast({
-				message: 'Votre message a bien été envoyé.',
+				message: 'Merci ! Votre message a bien été envoyé.',
 				type: 'success',
 			});
 		} catch (e) {

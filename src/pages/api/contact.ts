@@ -123,7 +123,7 @@ export default async function handler(
 						' ' +
 						emailValidation.data.lastName,
 					email: emailValidation.data.email,
-					requestType: emailValidation.data.requestType,
+					requestType: matchTitleRequestType(emailValidation.data.requestType),
 					message: emailValidation.data.message,
 				},
 			}),
