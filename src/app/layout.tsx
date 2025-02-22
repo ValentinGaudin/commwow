@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Header, Toaster } from '@/components/organisms';
 
@@ -18,6 +19,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="fr">
+			<Analytics />
 			<body className="bg-background-white">
 				<header id="portal-root" className="fixed w-full z-[999]" />
 				<Toaster>
