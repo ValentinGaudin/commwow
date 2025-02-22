@@ -36,11 +36,11 @@ const About = () => {
 	}, []);
 
 	return (
-		<section ref={sectionRef} id="about" className="bg-white py-20">
+		<section ref={sectionRef} id="about" className="py-20">
 			<div className="container mx-auto px-4">
 				<div className="flex flex-col lg:flex-row gap-8">
 					<div className="about-card flex-1 lg:flex-none lg:w-1/2">
-						<div className="bg-gradient-to-br  from-gradients-first to-gradients-second  p-8 rounded-3xl min-h-full flex flex-col items-center justify-evenly group">
+						<div className="bg-background-three bg-left-bottom p-8 rounded-3xl min-h-full flex flex-col items-center justify-evenly group">
 							<div className="mb-6">
 								<Image
 									src="/images/photo-04.png"
@@ -64,7 +64,7 @@ const About = () => {
 						</div>
 					</div>
 
-					<div className="bg-about-card flex flex-wrap bg-gradient-to-br from-gradients-first to-gradients-second p-8 rounded-3xl">
+					<div className="bg-about-card flex flex-wrap bg-background-three bg-right-bottom p-8 rounded-3xl">
 						<div className="about-card grid grid-cols-2 gap-8 items-center justify-items-center group">
 							<Image
 								className="rounded-3xl transform shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl"

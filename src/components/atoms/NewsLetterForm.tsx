@@ -49,7 +49,7 @@ const NewsLetterForm = () => {
 			onSubmit={onSubmit}
 		>
 			{({ isSubmitting }) => (
-				<Form className="flex flex-col items-center gap-4 max-w-lg w-full mx-auto p-4 bg-white shadow-md rounded-xl">
+				<Form className="flex flex-col items-center gap-4 max-w-lg w-full mx-auto p-4 shadow-md rounded-xl bg-white">
 					<div className="flex-1 w-full">
 						{/* Champ email */}
 						<Field

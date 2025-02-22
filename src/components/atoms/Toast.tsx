@@ -29,12 +29,12 @@ const Toast = ({ toast }: Props) => {
 	const toastIcon = useMemo(() => {
 		if (toast.type === 'success') {
 			return (
-				<CircleValidIcon className="block aspect-square invert-0 dark:invert mx-auto w-7 h-7" />
+				<CircleValidIcon className="block aspect-square invert-0 mx-auto w-7 h-7" />
 			);
 		}
 		if (toast.type === 'error') {
 			return (
-				<CircleExclamationIcon className="block aspect-square invert-0 dark:invert mx-auto w-7 h-7" />
+				<CircleExclamationIcon className="block aspect-square invert-0 mx-auto w-7 h-7" />
 			);
 		}
 	}, [toast.type]);
@@ -57,14 +57,14 @@ const Toast = ({ toast }: Props) => {
 			} group/toast flex items-center justify-center
 			min-w-[200px] md:min-w-[300px] max-w-[400px] m-2 
 			${toastColor} backdrop-blur-md
-			dark:backdrop-brightness-200 backdrop-contrast-200
+			backdrop-contrast-200
 			transition-all ease-out duration-500
 			`}
 		>
 			<div className={`mx-2`}>{toastIcon}</div>
 			<div className="flex items-center justify-between w-full py-3 px-1">
 				<div
-					className={`text-sm font-bold items-center dark:text-white text-dark`}
+					className={`text-sm font-bold items-center text-dark`}
 				>
 					{toast.message}
 				</div>

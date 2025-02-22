@@ -5,7 +5,7 @@ const Card = forwardRef<HTMLDivElement, PropsWithChildren>(
 		return (
 			<div
 				ref={ref}
-				className="  bg-white w-full h-full rounded-3xl p-8 shadow-lg relative overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-linear"
+				className="  w-full h-full bg-white rounded-3xl p-8 shadow-lg relative overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-linear"
 			>
 				<div className="relative">{children}</div>
 

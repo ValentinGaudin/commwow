@@ -1,25 +1,40 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Footer = () => {
-	return (
-		<footer className="bg-primary/90 text-white text-center text-sm">
-			<Link href="/mentions-legales">Mentions légales</Link>
+type Props = {
+	className?: string;
+};
 
-			<div className="mr-2 mt-2">
-				<p>
-					Made with ❤️ by &nbsp;
-					<a
-						href="https://www.linkedin.com/in/gaudinvalentin/"
-						target="_blank"
-						rel="noreferrer"
-						className="underline hover:text-orange-200 transition-colors duration-300"
-					>
-						Valentin Gaudin
-					</a>
-					&nbsp; &copy; {new Date().getFullYear()}
-				</p>
+const Footer = ({ className }: Props) => {
+	return (
+		<footer className={`bg-primary/90 text-white text-center text-sm ${className}`}>
+			<div className="flex flex-col md:flex-row justify-center items-center gap-4">
+				<Link
+					href="/mentions-legales"
+					className="hover:underline hover:text-orange-200 transition-colors duration-300"
+				>
+					Mentions légales
+				</Link>
+				<Link
+					href="/cgv"
+					className="hover:underline hover:text-orange-200 transition-colors duration-300"
+				>
+					Conditions générales de vente
+				</Link>
 			</div>
+
+			<p className="mt-5">
+				Made with ❤️ by{' '}
+				<a
+					href="https://www.linkedin.com/in/gaudinvalentin/"
+					target="_blank"
+					rel="noreferrer"
+					className="underline hover:text-orange-200 transition-colors duration-300"
+				>
+					Valentin Gaudin
+				</a>{' '}
+				&copy; {new Date().getFullYear()}
+			</p>
 		</footer>
 	);
 };

@@ -46,14 +46,9 @@
   @apply w-1 h-1;
 }
 
-/* Track */
-/*::-webkit-scrollbar-track {*/
-/*  @apply dark:bg-dark;*/
-/*}*/
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-white;
+  @apply bg-background-white;
 }
 
 @layer base {

@@ -13,8 +13,7 @@ import {
 	Wave,
 	Footer,
 } from '@/components/atoms';
-
-import { CustomSolutions, ScrollIndicator } from '@/components/molecules';
+import { CustomSolutions } from '@/components/molecules';
 import { ServicesGrid } from '@/components/organisms';
 
 export default function Home() {
@@ -71,7 +70,6 @@ export default function Home() {
 			) : (
 				<>
 					<NavigationBar />
-					<ScrollIndicator />
 					<AnimatedArrow />
 					<Hero />
 					<About />
@@ -79,7 +77,7 @@ export default function Home() {
 					<ServicesGrid />
 					<CustomSolutions />
 					<ContactModal />
-					<Wave className="mt-10" classNamePath="fill-primary/90" />
+					<Wave classNamePath="fill-primary/90" />
 					<Footer />
 				</>
 			)}

@@ -9,7 +9,7 @@ type Props = {
 
 const PricingCard = ({ title, price, features, period }: Props) => {
 	return (
-		<div className="bg-white w-full max-w-sm">
+		<div className="w-full max-w-sm">
 			<h3 className="text-xl font-bold text-orange-900 mb-2 min-h-[56px]">
 				{title}
 			</h3>

@@ -60,7 +60,7 @@ const CustomSolutions = () => {
 		<section
 			ref={sectionRef}
 			id="solutions"
-			className="py-20 bg-orange-50 overflow-hidden"
+			className="py-20 overflow-hidden"
 		>
 			<div className="container mx-auto">
 				<div ref={startCard} className="space-y-2 mb-5 p-4 md:p-6 lg:p-5">

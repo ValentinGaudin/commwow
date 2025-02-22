@@ -63,7 +63,7 @@ const ContactForm = () => {
 			onSubmit={onSubmit}
 		>
 			{({ isSubmitting }) => (
-				<Form className="space-y-6 max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+				<Form className="space-y-6 max-w-2xl mx-auto  p-8 rounded-lg shadow-lg">
 					<div className="w-full flex justify-evenly space-x-2">
 						<div className="w-1/2">
 							<label className="w-full block text-sm font-medium text-orange-700">

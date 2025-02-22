@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="fr">
-			<body>
+			<body className="bg-background-white">
 				<header id="portal-root" className="fixed w-full z-[999]" />
 				<Toaster>
 					<Header />

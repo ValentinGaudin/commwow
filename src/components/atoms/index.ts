@@ -1,6 +1,5 @@
 export { default as About } from './About';
 export { default as AnimatedArrow } from './AnimatedArrow';
-export { default as ApplicationLogo } from './ApplicationLogo';
 export { default as Card } from './Card';
 export { default as ContactForm } from './ContactForm';
 export { default as ContactModal } from './ContactModal';
