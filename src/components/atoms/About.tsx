@@ -97,7 +97,7 @@ const About = () => {
 								src={'/images/photo-02.png'}
 								alt="Une personne sur son téléphone assis devant son bureau, une tasse de café, un ordinateur et son carnet de notes."
 								width={790}
-								height={1143  }
+								height={1143}
 							/>
 							<div className="order-1">
 								<h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg group-hover:scale-105 transition duration-500">
