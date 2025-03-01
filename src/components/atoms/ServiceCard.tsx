@@ -9,7 +9,7 @@ interface ServiceCardProps {
 const ServiceCard = ({ service }: ServiceCardProps) => {
 	return (
 		<div className="flex-shrink-0 w-[300px] group">
-			<div className="p-4 bg-background-three bg-cover rounded-2xl overflow-hidden shadow-md transition-shadow h-full flex flex-col">
+			<div className="p-4 bg-background-3 rounded-2xl overflow-hidden shadow-md transition-shadow h-full flex flex-col">
 				<div className="relative h-[225px]">
 					<Image
 						loading="lazy"

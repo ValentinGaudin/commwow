@@ -67,15 +67,7 @@ const AnimatedArrow = () => {
 	return (
 		<div
 			ref={arrowRef}
-			style={{
-				position: 'fixed',
-				bottom: '20px',
-				right: '5%',
-				transform: 'translateX(-50%)',
-				fontSize: '2rem',
-				opacity: 0,
-				zIndex: 100,
-			}}
+			className="fixed bottom-5 right-[5%] transform -translate-x-1/2  text-4xl opacity-0 z-50"
 		>
 			↓
 		</div>
