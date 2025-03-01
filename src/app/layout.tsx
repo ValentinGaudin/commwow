@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 		canonical: 'https://commwow.fr',
 	},
 	icons: {
-		icon: '../../public/icons/favicon.ico',
+		icon: '/favicon.ico',
 		apple: '../../public/icons/apple-touch-icon.png',
 	},
 	manifest: process.env.URL + '/site.webmanifest',
@@ -56,11 +56,6 @@ export const metadata: Metadata = {
 	},
 	verification: {
 		google: 'jM5Ows8fCof5SlfJDIVzjRFVDaJk0u3ZtSagMQ8sNQ0',
-	},
-	appleWebApp: {
-		capable: true,
-		title: 'CommWow',
-		statusBarStyle: 'black-translucent',
 	},
 	formatDetection: {
 		telephone: false,
