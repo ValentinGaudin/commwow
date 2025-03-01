@@ -10,8 +10,6 @@ import {
 	NavigationBar,
 	ContactModal,
 	AnimatedArrow,
-	Wave,
-	Footer,
 } from '@/components/atoms';
 import { CustomSolutions } from '@/components/molecules';
 import { ServicesGrid } from '@/components/organisms';
@@ -77,8 +75,6 @@ export default function Home() {
 					<ServicesGrid />
 					<CustomSolutions />
 					<ContactModal />
-					<Wave classNamePath="fill-primary/90" />
-					<Footer />
 				</>
 			)}
 		</>

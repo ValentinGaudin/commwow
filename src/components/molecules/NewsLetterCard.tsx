@@ -51,7 +51,7 @@ const NewsLetterCard = () => {
 				className="text-2xl font-bold text-primary mb-6"
 				ref={newsLetterTitleFormRef}
 			>
-				Restez informé de nos actualités
+				Restez informé des actualités
 			</h3>
 			<div className="flex justify-center" ref={newsLetterBoxFormRef}>
 				<NewsLetterForm />
