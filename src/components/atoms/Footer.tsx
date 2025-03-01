@@ -25,7 +25,7 @@ const Footer = ({ className }: Props) => {
 				</Link>
 			</div>
 
-			<p className="mt-5">
+			<p className="pt-5 pb-2">
 				Made with ❤️ by{' '}
 				<a
 					href="https://www.linkedin.com/in/gaudinvalentin/"

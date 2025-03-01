@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Footer, Wave } from '@/components/atoms';
+import { Wave } from '@/components/atoms';
 
 const articles = [
 	{
@@ -156,46 +156,41 @@ const articles = [
 
 const Page = () => {
 	return (
-		<section className="h-svh">
-			<div className="min-h-screen">
-				<Wave className={'rotate-180'} classNamePath={'fill-primary'} />
-				<Link href={'/'} className="absolute top-0 left-0 z-50">
-					<h1 className="font-barba text-md sm:text-2xl md:text-3xl lg:text-4xl text-white p-2">
-						C’W
-					</h1>
-				</Link>
-				<div className="text-black py-12 px-6 h-full">
-					<div className="min-h-screen p-6">
-						<div className="max-w-3xl mx-auto">
-							<h1 className="text-4xl font-barba text-primary mb-6">
-								Conditions Générales de Vente (CGV)
-							</h1>
-							<p className="mb-6 text-gray-600">
-								Ces CGV régissent les relations entre Comm’Wow et ses clients.
-							</p>
+		<section className="min-h-screen">
+			<Wave className={'rotate-180'} classNamePath={'fill-primary'} />
+			<Link href={'/'} className="absolute top-0 left-0 z-50">
+				<h1 className="font-barba text-md sm:text-2xl md:text-3xl lg:text-4xl text-white p-2">
+					C’W
+				</h1>
+			</Link>
+			<div className="text-black py-12 px-6 h-full">
+				<div className="min-h-screen p-6">
+					<div className="max-w-3xl mx-auto">
+						<h1 className="text-4xl font-barba text-primary mb-6">
+							Conditions Générales de Vente (CGV)
+						</h1>
+						<p className="mb-6 text-gray-600">
+							Ces CGV régissent les relations entre Comm’Wow et ses clients.
+						</p>
 
-							{articles.map((article, index) => (
-								<details
-									key={index}
-									className="p-4 rounded-lg shadow-lg mb-3 transition-all duration-300 group group-hover:shadow-2xl bg-white"
-								>
-									<summary className="font-semibold cursor-pointer text-lg group-hover:text-orange-400 transition-colors">
-										Article {index + 1} - {article.title}
-									</summary>
-									<div className="mt-2 text-gray-700 ">
-										{article.content.map((item, key) => (
-											<p key={key}>{item}</p>
-										))}
-									</div>
-								</details>
-							))}
-						</div>
+						{articles.map((article, index) => (
+							<details
+								key={index}
+								className="p-4 rounded-lg shadow-lg mb-3 transition-all duration-300 group group-hover:shadow-2xl bg-white"
+							>
+								<summary className="font-semibold cursor-pointer text-lg group-hover:text-orange-400 transition-colors">
+									Article {index + 1} - {article.title}
+								</summary>
+								<div className="mt-2 text-gray-700 ">
+									{article.content.map((item, key) => (
+										<p key={key}>{item}</p>
+									))}
+								</div>
+							</details>
+						))}
 					</div>
 				</div>
 			</div>
-
-			<Wave className={''} classNamePath={'fill-primary/90'} />
-			<Footer className="" />
 		</section>
 	);
 };

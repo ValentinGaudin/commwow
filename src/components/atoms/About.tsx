@@ -40,13 +40,14 @@ const About = () => {
 			<div className="container mx-auto px-4">
 				<div className="flex flex-col lg:flex-row gap-8">
 					<div className="about-card flex-1 lg:flex-none lg:w-1/2">
-						<div className="bg-background-three bg-left-bottom p-8 rounded-3xl min-h-full flex flex-col items-center justify-evenly group">
+						<div className="bg-background-3 bg-left-bottom p-8 rounded-3xl min-h-full flex flex-col items-center justify-evenly group">
 							<div className="mb-6">
 								<Image
 									src="/images/photo-04.png"
-									alt="photo"
-									width={500}
-									height={500}
+									alt="Une personne écrivant dans son carnet de notes."
+									height={2655}
+									width={1920}
+									loading="lazy"
 									className="rounded-3xl transform shadow-xl transition duration-500 group-hover:scale-105 group-hover:shadow-2xl"
 								/>
 							</div>
@@ -64,14 +65,15 @@ const About = () => {
 						</div>
 					</div>
 
-					<div className="bg-about-card flex flex-wrap bg-background-three bg-right-bottom bg-cover p-8 rounded-3xl">
+					<div className="bg-about-card flex flex-wrap bg-background-3 bg-right-bottom bg-cover p-8 rounded-3xl">
 						<div className="about-card grid grid-cols-2 gap-8 items-center justify-items-center group">
 							<Image
+								loading="lazy"
 								className="rounded-3xl transform shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl"
 								src={'/images/photo-03.png'}
-								alt={'photo'}
-								width={200}
-								height={150}
+								alt="Un bureau avec une boite de crayons, un ordinateur, un jus de fruit, un café, un cahier de notes."
+								width={790}
+								height={1152}
 							/>
 							<div>
 								<h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg group-hover:scale-105 transition duration-500">
@@ -90,11 +92,12 @@ const About = () => {
 
 						<div className="about-card grid grid-cols-2 gap-8 items-center justify-items-center group">
 							<Image
+								loading="lazy"
 								className="order-2 rounded-3xl transform shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl"
 								src={'/images/photo-02.png'}
-								alt={'photo'}
-								width={200}
-								height={150}
+								alt="Une personne sur son téléphone assis devant son bureau, une tasse de café, un ordinateur et son carnet de notes."
+								width={790}
+								height={1143}
 							/>
 							<div className="order-1">
 								<h3 className="text-2xl font-bold text-white mb-4 drop-shadow-lg group-hover:scale-105 transition duration-500">

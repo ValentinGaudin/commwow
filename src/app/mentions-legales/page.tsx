@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Footer, Wave } from '@/components/atoms';
+import { Wave } from '@/components/atoms';
 
 const legalNotices = [
 	{
@@ -123,8 +123,6 @@ const MentionsLegales = () => {
 					</div>
 				</div>
 			</div>
-			<Wave className={''} classNamePath={'fill-primary/90'} />
-			<Footer />
 		</section>
 	);
 };

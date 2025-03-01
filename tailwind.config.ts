@@ -13,7 +13,9 @@ const config: Config = {
 				'hero-pattern': "url('/images/hero-pattern.svg')",
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'deco-hero': "url('/images/deco-hero.svg')",
-				'background-three': "url('/images/background-3.png')",
+				'background-1': "url('/images/background-1.png')",
+				'background-2': "url('/images/background-2.png')",
+				'background-3': "url('/images/background-3.png')",
 			},
 			fontFamily: {
 				sans: ['Flode Neue', 'monospace'],
