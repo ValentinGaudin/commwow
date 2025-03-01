@@ -71,7 +71,7 @@ const About = () => {
 								loading="lazy"
 								className="rounded-3xl transform shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl"
 								src={'/images/photo-03.png'}
-								alt='Un bureau avec une boite de crayons, un ordinateur, un jus de fruit, un café, un cahier de notes.'
+								alt="Un bureau avec une boite de crayons, un ordinateur, un jus de fruit, un café, un cahier de notes."
 								width={200}
 								height={150}
 							/>
@@ -95,7 +95,7 @@ const About = () => {
 								loading="lazy"
 								className="order-2 rounded-3xl transform shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl"
 								src={'/images/photo-02.png'}
-								alt='Une personne sur son téléphone assis devant son bureau, une tasse de café, un ordinateur et son carnet de notes.'
+								alt="Une personne sur son téléphone assis devant son bureau, une tasse de café, un ordinateur et son carnet de notes."
 								width={200}
 								height={150}
 							/>
