@@ -44,9 +44,10 @@ const About = () => {
 							<div className="mb-6">
 								<Image
 									src="/images/photo-04.png"
-									alt="photo"
+									alt="Une personne écrivant dans son carnet de notes."
 									width={500}
 									height={500}
+									loading="lazy"
 									className="rounded-3xl transform shadow-xl transition duration-500 group-hover:scale-105 group-hover:shadow-2xl"
 								/>
 							</div>
@@ -67,9 +68,10 @@ const About = () => {
 					<div className="bg-about-card flex flex-wrap bg-background-three bg-right-bottom bg-cover p-8 rounded-3xl">
 						<div className="about-card grid grid-cols-2 gap-8 items-center justify-items-center group">
 							<Image
+								loading="lazy"
 								className="rounded-3xl transform shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl"
 								src={'/images/photo-03.png'}
-								alt={'photo'}
+								alt='Un bureau avec une boite de crayons, un ordinateur, un jus de fruit, un café, un cahier de notes.'
 								width={200}
 								height={150}
 							/>
@@ -90,9 +92,10 @@ const About = () => {
 
 						<div className="about-card grid grid-cols-2 gap-8 items-center justify-items-center group">
 							<Image
+								loading="lazy"
 								className="order-2 rounded-3xl transform shadow-xl transition duration-300 group-hover:scale-105 group-hover:shadow-2xl"
 								src={'/images/photo-02.png'}
-								alt={'photo'}
+								alt='Une personne sur son téléphone assis devant son bureau, une tasse de café, un ordinateur et son carnet de notes.'
 								width={200}
 								height={150}
 							/>

@@ -81,7 +81,8 @@ const Hero = () => {
 								src="/images/photo-01.png"
 								width={500}
 								height={500}
-								alt="Enfant jouant dans un champ"
+								alt="Enfant jouant dans un champ avec un avion en papier dans le main imitant le décollage"
+								priority
 								className="w-full h-full object-cover group-hover:scale-95 group-hover:rotate-6 transition-transform ease-out duration-500 z-40"
 							/>
 						</div>
