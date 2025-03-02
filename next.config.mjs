@@ -11,6 +11,19 @@ const nextConfig = {
 		BREVO_API_KEY: process.env.BREVO_API_KEY,
 		URL: process.env.URL,
 		DEFAULT_EMAIL_FROM: process.env.DEFAULT_EMAIL_FROM,
+	},
+	async headers() {
+		return [
+			{
+				source: "/(.*)",
+				headers: [
+					{
+						key: "Permissions-Policy",
+						value: "geolocation=(), microphone=(), camera=()" // Browsing-Topics supprimé
+					}
+				]
+			}
+		];
 	}
 };
 
