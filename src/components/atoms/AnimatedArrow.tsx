@@ -54,10 +54,10 @@ const AnimatedArrow = () => {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			gsap.to(arrowRef.current, { opacity: 0, duration: 0.3 }); // Cacher la flèche au scroll
+			gsap.to(arrowRef.current, { opacity: 0, duration: 0.3 });
 		};
 
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('scroll', handleScroll, { passive: true });
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
