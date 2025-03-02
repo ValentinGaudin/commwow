@@ -15,7 +15,7 @@ import { CustomSolutions } from '@/components/molecules';
 import { ServicesGrid } from '@/components/organisms';
 
 export default function Home() {
-	const [isDomReady, setIsDomReady] = useState(true);
+	const [isDomReady, setIsDomReady] = useState(false);
 
 	useEffect(() => {
 		const handleAnchorClick = (event: MouseEvent) => {
@@ -57,9 +57,9 @@ export default function Home() {
 		return () => clearTimeout(timer);
 	}, []);
 
-	useEffect(() => {
-		setIsDomReady(true);
-	}, []);
+	// useEffect(() => {
+	// 	setIsDomReady(true);
+	// }, []);
 
 	return (
 		<>
