@@ -10,7 +10,7 @@ import { Footer, Wave } from '@/components/atoms';
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.commwow.fr'),
 	title: {
-		default: 'CommWow - Communication Dynamique et Créative',
+		default: 'CommWow - Communication dynamique et créative',
 		template: '%s | CommWow',
 	},
 	description:
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: 'website',
 		url: 'https://commwow.fr',
-		title: 'CommWow - Communication Dynamique et Créative',
+		title: 'CommWow - Communication dynamique et créative',
 		description:
 			'Renforcez votre image avec une communication dynamique, créative et impactante. CommWow vous accompagne dans la gestion de vos réseaux sociaux.',
 		siteName: 'CommWow',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 				url: 'https://commwow.fr/images/og-image.svg',
 				width: 1200,
 				height: 630,
-				alt: 'CommWow - Communication Dynamique et Créative',
+				alt: 'CommWow - Communication dynamique et créative',
 			},
 		],
 	},
