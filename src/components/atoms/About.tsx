@@ -40,7 +40,7 @@ const About = () => {
 			<div className="container mx-auto px-4">
 				<div className="flex flex-col lg:flex-row gap-8">
 					<div className="about-card flex-1 lg:flex-none lg:w-1/2">
-						<div className="bg-background-3 bg-left-bottom p-8 rounded-3xl min-h-full flex flex-col items-center justify-evenly group">
+						<div className="bg-background-3 bg-cover bg-center p-8 rounded-3xl min-h-full flex flex-col items-center justify-evenly group">
 							<div className="mb-6">
 								<Image
 									src="/images/photo-04.png"
@@ -65,7 +65,7 @@ const About = () => {
 						</div>
 					</div>
 
-					<div className="bg-about-card flex flex-wrap bg-background-3 bg-right-bottom bg-cover p-8 rounded-3xl">
+					<div className="bg-about-card flex flex-wrap bg-background-3 bg-cover bg-center p-8 rounded-3xl">
 						<div className="about-card grid grid-cols-2 gap-8 items-center justify-items-center group">
 							<Image
 								loading="lazy"
