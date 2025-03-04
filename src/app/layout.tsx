@@ -6,6 +6,7 @@ import '@/styles/global.css';
 
 import { Header, Toaster } from '@/components/organisms';
 import { Footer, Wave } from '@/components/atoms';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://www.commwow.fr'),
@@ -73,6 +74,7 @@ const RootLayout = ({
 				<Toaster>
 					<Header />
 					{children}
+					<Analytics />
 				</Toaster>
 				<Wave classNamePath="fill-primary/90" />
 				<Footer />
