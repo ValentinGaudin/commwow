@@ -66,13 +66,6 @@ const CustomSolutions = () => {
 					<div className="w-32 h-1 bg-orange-400 rounded-full" />
 					<p>
 						Chaque entreprise est unique, et vos besoins le sont tout autant.
-						Chez Comm’Wow, pas d’offres rigides : chaque collaboration repose
-						sur un véritable échange pour concevoir des solutions
-						personnalisées.
-					</p>
-					<p>
-						Cependant, pour vous permettre de vous projeter, voici quelques
-						exemples de prestations :
 					</p>
 				</div>
 
