@@ -15,7 +15,6 @@ const NavigationBar = () => {
 	const [activeSection, setActiveSection] = useState<string>('');
 	const router = useRouter();
 
-	// Récupération de l'ancre avec `URLSearchParams`
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			const params = new URLSearchParams(window.location.search);
@@ -71,7 +70,7 @@ const NavigationBar = () => {
 	};
 
 	return (
-		<nav className="fixed top-0 w-screen z-50 flex justify-center items-center py-2 px-4 lg:py-4 lg:px-8 bg-ternary/90 backdrop-blur shadow-lg">
+		<nav className="fixed top-0 w-screen z-50 flex justify-center items-center py-2 px-4 lg:py-4 lg:px-8 bg-ternary/70 backdrop-blur shadow-lg">
 			<ul className="flex space-x-2 lg:space-x-6 text-white">
 				{sections.map((section) => (
 					<li key={section.id}>
@@ -79,8 +78,8 @@ const NavigationBar = () => {
 							onClick={() => handleNavigation(section.id)}
 							className={`transition-colors duration-300 font-light text-sm md:text-lg lg:text-xl ${
 								activeSection === section.id
-									? 'text-secondary/70 active:text-red'
-									: 'hover:text-primary'
+									? 'text-secondary/90 active:text-red'
+									: 'hover:text-secondary'
 							}`}
 						>
 							{section.title}
