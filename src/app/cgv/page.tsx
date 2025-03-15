@@ -1,7 +1,3 @@
-import Link from 'next/link';
-
-import { Wave } from '@/components/atoms';
-
 const articles = [
 	{
 		title: 'Objet',
@@ -157,12 +153,6 @@ const articles = [
 const Page = () => {
 	return (
 		<section className="min-h-screen">
-			<Wave className={'rotate-180'} classNamePath={'fill-primary'} />
-			<Link href={'/'} className="absolute top-0 left-0 z-50">
-				<h1 className="font-barba text-md sm:text-2xl md:text-3xl lg:text-4xl text-white p-2">
-					C’W
-				</h1>
-			</Link>
 			<div className="text-black py-12 px-6 h-full">
 				<div className="min-h-screen p-6">
 					<div className="max-w-3xl mx-auto">
