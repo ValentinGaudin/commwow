@@ -7,7 +7,6 @@ import {
 	Hero,
 	Services,
 	Loader,
-	NavigationBar,
 	ContactModal,
 	AnimatedArrow,
 } from '@/components/atoms';
@@ -67,7 +66,6 @@ export default function Home() {
 				<Loader />
 			) : (
 				<>
-					<NavigationBar />
 					<AnimatedArrow />
 					<Hero />
 					<About />

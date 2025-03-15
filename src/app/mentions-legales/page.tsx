@@ -1,7 +1,3 @@
-import Link from 'next/link';
-
-import { Wave } from '@/components/atoms';
-
 const legalNotices = [
 	{
 		title: 'Éditeur du site',
@@ -73,20 +69,13 @@ const legalNotices = [
 
 const MentionsLegales = () => {
 	return (
-		<section className="h-svh">
-			<div className="min-h-screen">
-				<Wave className={'rotate-180'} classNamePath={'fill-primary'} />
-				<div className="h-svh">
-					<Link href={'/'} className="absolute top-0 left-0 z-50">
-						<h1 className="font-barba text-md sm:text-2xl md:text-3xl lg:text-4xl text-white p-2">
-							C’W
-						</h1>
-					</Link>
-					<div className="text-black py-12 px-6">
+		<section className="min-h-screen">
+			<div>
+				<div className="text-black py-12 px-6 h-full">
+					<div className="min-h-screen p-6">
 						<h1 className="text-4xl font-barba text-primary mb-6">
 							Mentions Légales
 						</h1>
-
 						<div className="container mx-auto max-w-3xl">
 							{legalNotices.map((legalNotice, index) => (
 								<details

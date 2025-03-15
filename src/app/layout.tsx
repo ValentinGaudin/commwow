@@ -76,7 +76,7 @@ const RootLayout = ({
 					{children}
 					<Analytics />
 				</Toaster>
-				<Wave classNamePath="fill-primary/90" />
+				<Wave classNamePath="fill-ternary/90" />
 				<Footer />
 			</body>
 		</html>
