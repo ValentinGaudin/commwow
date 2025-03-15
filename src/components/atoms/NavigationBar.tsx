@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const sections = [
 	{ id: 'hero', title: 'Accueil' },
@@ -14,17 +14,21 @@ const sections = [
 const NavigationBar = () => {
 	const [activeSection, setActiveSection] = useState<string>('');
 	const router = useRouter();
-	const searchParams = useSearchParams();
-	const targetSection = searchParams?.get('section');
 
+	// Récupération de l'ancre avec `URLSearchParams`
 	useEffect(() => {
-		if (targetSection) {
-			const element = document.getElementById(targetSection);
-			if (element) {
-				element.scrollIntoView({ behavior: 'smooth' });
+		if (typeof window !== 'undefined') {
+			const params = new URLSearchParams(window.location.search);
+			const targetSection = params.get('section');
+
+			if (targetSection) {
+				const element = document.getElementById(targetSection);
+				if (element) {
+					element.scrollIntoView({ behavior: 'smooth' });
+				}
 			}
 		}
-	}, [targetSection]);
+	}, []);
 
 	const observerOptions = {
 		root: null,
@@ -57,7 +61,7 @@ const NavigationBar = () => {
 
 	const handleNavigation = (sectionId: string) => {
 		if (window.location.pathname !== '/') {
-			router.push(`/?section=${sectionId}`); // Change l'URL sans recharger
+			router.push(`/?section=${sectionId}`);
 		} else {
 			const element = document.getElementById(sectionId);
 			if (element) {
