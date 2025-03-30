@@ -95,7 +95,7 @@ export default async function handler(
 				params: {
 					rates:
 						emailValidation.data.requestType === 'rates'
-							? process.env.RATES + 'tarifs.pdf'
+							? process.env.URL + 'tarifs.pdf'
 							: '',
 				},
 			}),
