@@ -25,7 +25,8 @@ export const ContactSchema = z.object({
 	message: z
 		.string()
 		.min(10, 'Le message est trop court (min. 10 caractères)')
-		.max(500, 'Le message est trop long (max. 500 caractères)'),
+		.max(500, 'Le message est trop long (max. 500 caractères)')
+		.optional(),
 });
 
 export type Contact = z.infer<typeof ContactSchema>;
